@@ -1,0 +1,33 @@
+@api = http://localhost:3000/products
+
+### get all products
+GET {{api}}
+?page=2
+&pageSize=10
+### create a product
+POST {{api}}
+Content-Type: application/json
+
+{
+    "title": "Product 2",
+    "description": "This is a product",
+    "price": "100.00",
+    "image": "http://www.example.com/image.jpg",
+    "quantity": "10"
+}
+
+### get a single product by id
+GET {{api}}/631d4d0e5ace9408caf66b45
+
+### update a product by id
+PUT {{api}}/631d4d0e5ace9408caf66b45
+Content-Type: application/json
+
+{
+    "title": "Product 2",
+    "description": "a second product",
+    "price": "120.00"
+}
+
+### delete a product by id
+DELETE {{api}}/631d4d0e5ace9408caf66b45
