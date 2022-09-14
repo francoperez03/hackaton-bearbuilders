@@ -1,0 +1,3 @@
+[submodule "bearbuilders-contracts/lib/forge-std"]
+	path = bearbuilders-contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
