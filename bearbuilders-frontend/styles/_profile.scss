@@ -1,0 +1,22 @@
+.profile {
+   background-color: beige;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+
+   &__reservations,
+   &__history {
+      width: 50%;
+
+      &-title {
+         text-align: center;
+         margin: 1rem 0;
+      }
+
+      &-items {
+         display:flex;
+         justify-content: center;
+      }
+   }
+}
