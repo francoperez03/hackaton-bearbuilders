@@ -1,8 +1,7 @@
-import React from 'react'
-import axios from 'axios'
-import Link from 'next/link';
-
-
+import React from "react";
+import axios from "axios";
+import Link from "next/link";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 export default function index({ reservations }) {
   return (
     <div>
@@ -10,7 +9,14 @@ export default function index({ reservations }) {
         <option value="Nuevas">Reservar</option>
         <option value="Subastas">Reservas</option>
       </select>
-      {reservations.map(reservation => (
+      <ConnectButton
+        label="Conectá tu billetera"
+        accountStatus="address"
+        chainStatus="none"
+        showBalance={false}
+      />
+
+      {reservations.map((reservation) => (
         <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
           <a>
             <div>
@@ -22,18 +28,18 @@ export default function index({ reservations }) {
         </Link>
       ))}
     </div>
-  )
+  );
 }
 
-
 export const getServerSideProps = async (context) => {
-
-  const { data: reservations } = await axios.get('http://localhost:3002/reservations')
+  const { data: reservations } = await axios.get(
+    "http://0.0.0.0:3002/reservations"
+  );
   // console.log(res.data)
 
   return {
     props: {
-      reservations
-    }
-  }
-}
+      reservations,
+    },
+  };
+};
