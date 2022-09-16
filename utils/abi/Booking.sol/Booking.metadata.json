@@ -1,0 +1,341 @@
+{
+  "compiler": {
+    "version": "0.8.16+commit.07a7930e"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "hotel",
+            "type": "address"
+          }
+        ],
+        "name": "HotelAdded",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "hotel",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "ReservationSuccessfully",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_hotel",
+            "type": "address"
+          }
+        ],
+        "name": "addHotel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "approveTransfer",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "_userId",
+            "type": "address"
+          }
+        ],
+        "name": "burnReservation",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_transferToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_reserveToken",
+            "type": "address"
+          }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_hotel",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_expiryTimestamp",
+            "type": "uint256"
+          }
+        ],
+        "name": "makeAReservation",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "_tokenId",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {
+        "owner()": {
+          "details": "Returns the address of the current owner."
+        },
+        "renounceOwnership()": {
+          "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+        },
+        "transferOwnership(address)": {
+          "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/Booking.sol": "Booking"
+    },
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+      "keccak256": "0xee2b6bc803215b66037612da0fe9f23ec3c99ff89db4ff05449a8df17c9befc5",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://127be279bb6b2f6106127ea6b431cfc879f9018dd76b7575841821be9eef3488",
+        "dweb:/ipfs/QmfXqvL6sKx256hrVuQcSnNtirZrpm4JUbDFXwGHKgrrXU"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+      "keccak256": "0xdd286f7283325eb12ee50e41dac6be9665262e827b66f4f8952111ff77b6a130",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://567e5cfe5c64fb8c5f041393d42178447cf00880a2a2172a5a8e83131e1c24fa",
+        "dweb:/ipfs/QmY6KVSBk5xbtZuyhcQPNyJAATMZnmJ45TcBBAE7rzD5du"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": {
+      "keccak256": "0xcb301a571038e229ea0b795fd464f1c8cc5d56e5fb139618e9750b96d28b6253",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://16895cc1f39324163fbd9c4253c8c54611b38e11a73bddd30edf21632212d062",
+        "dweb:/ipfs/Qmav3pMMZjbc5EMC7ZzVSG4dnqhxpjrEquLQa2ZzVkjHa5"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol": {
+      "keccak256": "0xb87f6c8b1acd212401b34a2fedc6c782487bee64975bc196efa039515dd8ca7c",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://ac7ae89367b47ad289cab6bdb00d86d09f148828ce1f57fc871752eb704af04b",
+        "dweb:/ipfs/QmTbnGFk5McNBcQr1PEuVWKf88v1Zx546u2CpEFHD1aPSL"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol": {
+      "keccak256": "0xc97c28f24caed758d150587f1e57753705c2439f314ac47947739869c4413819",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://b2319c1a8e34937da319c0a443a3fa9567994a9fc327be7186c7738573bcfa2f",
+        "dweb:/ipfs/QmTSesyJCFLrjSJm5FoVLR1kXM26CnxVy1Ti9HHx31ZyJ2"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+      "keccak256": "0x23018238ee951d13a9d7f7d2cd641065752923c0aeede09a58a7f1fabf891d75",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://83a5286e82596aa938b6e38803360ca935b9727dc98f317b318a559ae9f438a5",
+        "dweb:/ipfs/QmaBhNbpWZ6JPrfhuqX54DAtZj35yX278vArsNr5WtdXoZ"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol": {
+      "keccak256": "0x7cc4e7c4325a6bd6445f757cd8dc13839d130a638a97e46ca76d9894766ebf8e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://f5361767bdbc08a5b04f66a2fba13ff75171af4fe3a17f567c1d3d3a69d4bd19",
+        "dweb:/ipfs/QmS9ZqJeShhYoHZBFs64k48pKwe4j7NXCRuDxk9tHQLzAS"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+      "keccak256": "0x81d5fc973a522c8909d60be6a201869d46aa47b030b8813f60616404628c2b94",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://9755b505799e622d964a843a8ed1fd60fedffca230178e5cb95ae9280df4dcd2",
+        "dweb:/ipfs/QmRkhUYUUgRZ2QYJjmtQct2ubyYwS3bdUMhbuFYM12VfYn"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Counters.sol": {
+      "keccak256": "0x45f2d503ebecf25ea4b038d02a7ed96898bd197bec585d0ba3560bfb4b509a82",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c87b73d7c9c7773c8d2b06e3f38d88a3980c04016bb44967ecacfa5ac45bc62b",
+        "dweb:/ipfs/QmbQVT9fpAxMQ492735rZzUK2e73ayqdZz2fGPgey8jCVR"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
+      "keccak256": "0xf16f994c9b31fb0b1301e3cb19d5c0e1ef9cd4d7cb0676feccd5acf7225ca182",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://5a6e68963b90dced7c932363670906fe1007fc8b42db2e5be9fd7a4bc28198b3",
+        "dweb:/ipfs/QmaXRGBrzFaXaheTYNjT4sy4w1g34JtQdmFbYES1FLJq8n"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol": {
+      "keccak256": "0x3d3fe7b1901114d50828f5c77ba7f09a2a6a65223620c837364d31b60e5982ac",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://6751cee12592cb9c33be618057660d6c84cb0594bd0afa552009438e38d3dd02",
+        "dweb:/ipfs/QmWq8SxNw4q6n1B8i9sFZVaodB6wrcyBPsKPWMsaUyCECH"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+      "keccak256": "0x540685d7ece3faa56f38253270ff11b18e63949fb8659c408123b1874674492e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://5474839e19e2571c52eae3aab1dc6e6edf2b20bbba9895f59db6594a2678a3d5",
+        "dweb:/ipfs/QmVHocBeANMkq4TzVM7q9At5NSg1TEpT9D9vgJ5dGcvcPN"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+      "keccak256": "0xba37a24de0e9648eafe903a518734f074b7ad7dff3a750d50f345c2f1b3b2695",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://bae23e1e259846a3d9bdd07f14b7128da464158172479dff72da521b617ffa1a",
+        "dweb:/ipfs/QmTvPjhMBMF3guebYzVAJgfNLdwdLi979tY3bTaNLLZAbr"
+      ]
+    },
+    "src/Booking.sol": {
+      "keccak256": "0xc734328c06a3a291ab8ab9344d2713d2c6001a9aec9c90e77bbdce32328a89a4",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://70a25e4a26aeb0e0a1f61a4c97e2d70a4cdbfab840f7c47611c72c3444107097",
+        "dweb:/ipfs/QmfP8WMf1HTnnELi3SM23YMhtcaS5gkf439TpDq3mgmzem"
+      ]
+    },
+    "src/ReserveERC721.sol": {
+      "keccak256": "0x86067e60ed2f75e10774e460b80f7113446d6773aee7c1efe100020ebc5790eb",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://dacc74ec366fb6ddfd4d6491b1f907ae2a8502538db0053dae0f0148753e016e",
+        "dweb:/ipfs/QmPYCdugPN9LcdoLbc4Zv8P1KYb6V9bQLHdtRZaZzj5Yti"
+      ]
+    }
+  },
+  "version": 1
+}

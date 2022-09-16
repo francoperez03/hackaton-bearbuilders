@@ -81,4 +81,52 @@ const reservations = [
       ],
     },
   },
+  {
+    id: "2",
+    hotel: {
+      name: "Faena Hotel",
+      address: "Punta Cana Hotel",
+      telephone: "Punta Cana Hotel",
+      mail: "Punta Cana Hotel",
+      socialNetworks: [
+        {
+          name: "facebook",
+          url: "facebook/puntaCAana",
+        },
+      ],
+      amenities: ["piscina", "desayuno"],
+      images: [
+        {
+          url: "",
+          alt: "",
+        },
+      ],
+      description: "description 1 lorem lorem lorem",
+    },
+    location: {
+      city: "Buenos Aires",
+      state: [],
+      country: "",
+    },
+    reservation: {
+      status: "confirmed",
+      startDate: "2021-10-31T01:30:00.000-05:00",
+      endDate: "2020-10-31T01:30:00.000-05:00",
+      trace: [
+        {
+          userId: "",
+          reservationDate: "",
+          valid: true,
+        },
+        {
+          userId: "",
+          reservationDate: "",
+        },
+        {
+          userId: "",
+          reservationDate: "",
+        },
+      ],
+    },
+  },
 ];
