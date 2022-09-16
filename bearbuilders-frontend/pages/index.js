@@ -6,11 +6,15 @@ import Link from 'next/link';
 export default function index({ reservations }) {
   return (
     <div>
+      <select name="options" id="options">
+        <option value="Nuevas">Reservar</option>
+        <option value="Subastas">Reservas</option>
+      </select>
       {reservations.map(reservation => (
         <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
           <a>
             <div>
-              <h1>hotel: {reservation.hotel.name}</h1>
+              <h1>{reservation.hotel.name}</h1>
             </div>
           </a>
         </Link>

@@ -7,7 +7,9 @@ export default function reservationDetail({ reservation }) {
             <h1>hotel: {reservation.hotel.name}</h1>
             <h1>city: {reservation.location.city}</h1>
             <h1>reservation status: {reservation.reservation.status}</h1>
+            <button>Sell reservation</button>
         </div>
+
     )
 }
 
