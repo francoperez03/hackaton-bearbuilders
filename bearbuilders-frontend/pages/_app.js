@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { AppProps } from "next/app";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
@@ -6,38 +5,54 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
-const avalancheChain = {
-  id: 43_114,
+const metisMainnet = {
+  id: 1088,
   name: "Metis",
   network: "metis",
-  iconUrl: "https://example.com/icon.svg",
+  iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/9640.png",
   iconBackground: "#fff",
   nativeCurrency: {
     decimals: 18,
-    name: "Avalanche",
-    symbol: "AVAX",
+    name: "Metis",
+    symbol: "METIS",
   },
   rpcUrls: {
-    default: "https://api.avax.network/ext/bc/C/rpc",
+    default: "https://andromeda.metis.io/?owner=1088",
   },
   blockExplorers: {
-    default: { name: "SnowTrace", url: "https://snowtrace.io" },
-    etherscan: { name: "SnowTrace", url: "https://snowtrace.io" },
+    default: {
+      name: "AndromedaExplorer",
+      url: "https://andromeda-explorer.metis.io/",
+    },
+  },
+  testnet: false,
+};
+
+const metisTestnet = {
+  id: 588,
+  name: "Metis Testnet",
+  network: "metis",
+  iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/9640.png",
+  iconBackground: "#fff",
+  nativeCurrency: {
+    decimals: 18,
+    name: "Metis Testnet",
+    symbol: "METIS",
+  },
+  rpcUrls: {
+    default: "https://stardust.metis.io/?owner=588",
+  },
+  blockExplorers: {
+    default: {
+      name: "StardustExplorer",
+      url: "https://stardust-explorer.metis.io/",
+    },
   },
   testnet: false,
 };
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [
-    chain.mainnet,
-    chain.polygon,
-    chain.optimism,
-    chain.arbitrum,
-    avalancheChain,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
-      ? [chain.goerli, chain.kovan, chain.rinkeby, chain.ropsten]
-      : []),
-  ],
+  [chain.goerli, metisMainnet, metisTestnet],
   [
     alchemyProvider({
       // This is Alchemy's default API key.
