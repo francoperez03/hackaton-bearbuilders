@@ -6,18 +6,29 @@
   "output": {
     "abi": [
       {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_deployer",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
         "anonymous": false,
         "inputs": [
           {
             "indexed": true,
             "internalType": "address",
-            "name": "previousOwner",
+            "name": "owner",
             "type": "address"
           },
           {
             "indexed": true,
             "internalType": "address",
-            "name": "newOwner",
+            "name": "approved",
             "type": "address"
           },
           {
@@ -27,7 +38,7 @@
             "type": "uint256"
           }
         ],
-        "name": "ChangeReservationOwner",
+        "name": "Approval",
         "type": "event"
       },
       {
@@ -36,30 +47,23 @@
           {
             "indexed": true,
             "internalType": "address",
-            "name": "hotel",
-            "type": "address"
-          }
-        ],
-        "name": "HotelAdded",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "previousOwner",
+            "name": "owner",
             "type": "address"
           },
           {
             "indexed": true,
             "internalType": "address",
-            "name": "newOwner",
+            "name": "operator",
             "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
           }
         ],
-        "name": "OwnershipTransferred",
+        "name": "ApprovalForAll",
         "type": "event"
       },
       {
@@ -68,13 +72,13 @@
           {
             "indexed": true,
             "internalType": "address",
-            "name": "hotel",
+            "name": "from",
             "type": "address"
           },
           {
             "indexed": true,
             "internalType": "address",
-            "name": "user",
+            "name": "to",
             "type": "address"
           },
           {
@@ -84,18 +88,23 @@
             "type": "uint256"
           }
         ],
-        "name": "ReservationSuccessfully",
+        "name": "Transfer",
         "type": "event"
       },
       {
         "inputs": [
           {
             "internalType": "address",
-            "name": "_hotel",
+            "name": "to",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
           }
         ],
-        "name": "addHotel",
+        "name": "approve",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -104,11 +113,11 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "_hotel",
+            "name": "owner",
             "type": "address"
           }
         ],
-        "name": "balanceOfHotel",
+        "name": "balanceOf",
         "outputs": [
           {
             "internalType": "uint256",
@@ -125,14 +134,9 @@
             "internalType": "uint256",
             "name": "_tokenId",
             "type": "uint256"
-          },
-          {
-            "internalType": "address",
-            "name": "_userId",
-            "type": "address"
           }
         ],
-        "name": "burnReservation",
+        "name": "burn",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -140,40 +144,17 @@
       {
         "inputs": [
           {
-            "internalType": "address",
-            "name": "_previousOwner",
-            "type": "address"
-          },
-          {
             "internalType": "uint256",
-            "name": "_tokenId",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_amount",
+            "name": "tokenId",
             "type": "uint256"
           }
         ],
-        "name": "changeReservationOwner",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_userId",
-            "type": "address"
-          }
-        ],
-        "name": "getReservations",
+        "name": "getApproved",
         "outputs": [
           {
-            "internalType": "uint256[]",
+            "internalType": "address",
             "name": "",
-            "type": "uint256[]"
+            "type": "address"
           }
         ],
         "stateMutability": "view",
@@ -183,48 +164,39 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "_transferToken",
+            "name": "owner",
             "type": "address"
           },
           {
             "internalType": "address",
-            "name": "_reserveToken",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
-            "name": "_poasToken",
+            "name": "operator",
             "type": "address"
           }
         ],
-        "name": "initialize",
-        "outputs": [],
-        "stateMutability": "nonpayable",
+        "name": "isApprovedForAll",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
         "type": "function"
       },
       {
         "inputs": [
           {
             "internalType": "address",
-            "name": "_hotel",
+            "name": "_to",
             "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_expiryTimestamp",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_amount",
-            "type": "uint256"
           }
         ],
-        "name": "makeAReservation",
+        "name": "mint",
         "outputs": [
           {
             "internalType": "uint256",
-            "name": "_tokenId",
+            "name": "",
             "type": "uint256"
           }
         ],
@@ -233,7 +205,26 @@
       },
       {
         "inputs": [],
-        "name": "owner",
+        "name": "name",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "ownerOf",
         "outputs": [
           {
             "internalType": "address",
@@ -245,8 +236,24 @@
         "type": "function"
       },
       {
-        "inputs": [],
-        "name": "renounceOwnership",
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "safeTransferFrom",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -255,11 +262,131 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "newOwner",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          }
+        ],
+        "name": "safeTransferFrom",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "operator",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
+          }
+        ],
+        "name": "setApprovalForAll",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_minter",
             "type": "address"
           }
         ],
-        "name": "transferOwnership",
+        "name": "setMinter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes4",
+            "name": "interfaceId",
+            "type": "bytes4"
+          }
+        ],
+        "name": "supportsInterface",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "symbol",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "tokenURI",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "transferFrom",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -268,14 +395,44 @@
     "devdoc": {
       "kind": "dev",
       "methods": {
-        "owner()": {
-          "details": "Returns the address of the current owner."
+        "approve(address,uint256)": {
+          "details": "See {IERC721-approve}."
         },
-        "renounceOwnership()": {
-          "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+        "balanceOf(address)": {
+          "details": "See {IERC721-balanceOf}."
         },
-        "transferOwnership(address)": {
-          "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+        "getApproved(uint256)": {
+          "details": "See {IERC721-getApproved}."
+        },
+        "isApprovedForAll(address,address)": {
+          "details": "See {IERC721-isApprovedForAll}."
+        },
+        "name()": {
+          "details": "See {IERC721Metadata-name}."
+        },
+        "ownerOf(uint256)": {
+          "details": "See {IERC721-ownerOf}."
+        },
+        "safeTransferFrom(address,address,uint256)": {
+          "details": "See {IERC721-safeTransferFrom}."
+        },
+        "safeTransferFrom(address,address,uint256,bytes)": {
+          "details": "See {IERC721-safeTransferFrom}."
+        },
+        "setApprovalForAll(address,bool)": {
+          "details": "See {IERC721-setApprovalForAll}."
+        },
+        "supportsInterface(bytes4)": {
+          "details": "See {IERC165-supportsInterface}."
+        },
+        "symbol()": {
+          "details": "See {IERC721Metadata-symbol}."
+        },
+        "tokenURI(uint256)": {
+          "details": "See {IERC721Metadata-tokenURI}."
+        },
+        "transferFrom(address,address,uint256)": {
+          "details": "See {IERC721-transferFrom}."
         }
       },
       "version": 1
@@ -288,7 +445,7 @@
   },
   "settings": {
     "compilationTarget": {
-      "src/Booking.sol": "Booking"
+      "src/POASERC721.sol": "POASERC721"
     },
     "evmVersion": "london",
     "libraries": {},
@@ -305,46 +462,6 @@
     ]
   },
   "sources": {
-    "lib/forge-std/src/console.sol": {
-      "keccak256": "0xbbdc11ec3a00e6b8c6c76e7f0ea46581239faee116324de4184dd0af011dd837",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://10581f46c044a7561d25d8ea203f4e89e13a807b40bf9d87520f69407447de42",
-        "dweb:/ipfs/QmSFVUzcDB9QtNyjJ5fLzi3kqKhtEbDD7TZMgbzJ9wiC63"
-      ]
-    },
-    "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
-      "keccak256": "0xee2b6bc803215b66037612da0fe9f23ec3c99ff89db4ff05449a8df17c9befc5",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://127be279bb6b2f6106127ea6b431cfc879f9018dd76b7575841821be9eef3488",
-        "dweb:/ipfs/QmfXqvL6sKx256hrVuQcSnNtirZrpm4JUbDFXwGHKgrrXU"
-      ]
-    },
-    "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
-      "keccak256": "0x743aecd6496301fa0dfd63a14e7ed8878be11a6ff29e19f3fec815407455e720",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://b9fcc199b42eda8f9fe2c9c013371ade870224495d4d3d230f92a8cf6f7761bc",
-        "dweb:/ipfs/QmXNRDTDwKsqrEyHprtiYgbF2FrvBZvuYN2viXbPLnLkJ9"
-      ]
-    },
-    "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
-      "keccak256": "0xdd286f7283325eb12ee50e41dac6be9665262e827b66f4f8952111ff77b6a130",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://567e5cfe5c64fb8c5f041393d42178447cf00880a2a2172a5a8e83131e1c24fa",
-        "dweb:/ipfs/QmY6KVSBk5xbtZuyhcQPNyJAATMZnmJ45TcBBAE7rzD5du"
-      ]
-    },
-    "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "keccak256": "0x0270cb4e50d6bcdd780df229606076d39df796860d266b5426f374c36f34fe89",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://511db944b3f0a57b56fda90d1e466cca6a0dea2297d816251966c8f025313973",
-        "dweb:/ipfs/QmRgu5uCaKkoRr3amWGfhy6bVwhpH5tr1vynaNQyEYiE4p"
-      ]
-    },
     "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": {
       "keccak256": "0xcb301a571038e229ea0b795fd464f1c8cc5d56e5fb139618e9750b96d28b6253",
       "license": "MIT",
@@ -433,36 +550,12 @@
         "dweb:/ipfs/QmTvPjhMBMF3guebYzVAJgfNLdwdLi979tY3bTaNLLZAbr"
       ]
     },
-    "src/Booking.sol": {
-      "keccak256": "0x33cfabd443db76284150b21dff4fb8bc409afe9f6d9c4eeb677285bc35ba0004",
-      "license": "UNLICENSED",
-      "urls": [
-        "bzz-raw://0bf4a9e3167b631b1b4740c97c7f69ce7bd9add3b284016028b6a777c10333a3",
-        "dweb:/ipfs/QmdRYfqwdoue6k1kmm2r3eKwuwd1GVQY7Utr16FEWqcKDe"
-      ]
-    },
     "src/POASERC721.sol": {
       "keccak256": "0x0e18173303da1d1f1296269590ea175daca1381108f052aa3889fff03b1dd619",
       "license": "UNLICENSED",
       "urls": [
         "bzz-raw://ffd814a1e555534487d21d383a14adabdae10ccb50625a85c74b66911f6d161d",
         "dweb:/ipfs/QmafbrA6G6QHd9MW4MJ15jWh7uzdLMdc7d1bQSSKdNMB4B"
-      ]
-    },
-    "src/ReserveERC721.sol": {
-      "keccak256": "0x400995db0dd75ba2c4d7a474ac7eee6e5bcf45c144fbb3446cca90e79ed6664b",
-      "license": "UNLICENSED",
-      "urls": [
-        "bzz-raw://aaa392b971cac9a5e30e5c6a84411709ed8388346f00a9f5bcf69de74b421a96",
-        "dweb:/ipfs/QmbyuH1RUf7Lyeyp9XEpVVA3gaM2rB7phHngPCkfHDo2HS"
-      ]
-    },
-    "src/TransferTokenERC20.sol": {
-      "keccak256": "0xac8469fd12505a3df1ebe1d8f6eced1063991e9fb3727a8663c6123c81f139f0",
-      "license": "UNLICENSED",
-      "urls": [
-        "bzz-raw://75650ece10696c569f1f2b47452863aa38b3afd18356b612bff42f1db6e83ab0",
-        "dweb:/ipfs/QmSCmamUSnxVUcVsHCy5zFAYtsraWHqsdb2mW5vq4DQ9ki"
       ]
     }
   },
