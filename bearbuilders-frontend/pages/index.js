@@ -15,6 +15,8 @@ export default function index({ reservations }) {
           <a>
             <div>
               <h1>{reservation.hotel.name}</h1>
+              <h1>{reservation.reservation.startDate}</h1>
+              <h1>{reservation.reservation.endDate.toString()}</h1>
             </div>
           </a>
         </Link>
