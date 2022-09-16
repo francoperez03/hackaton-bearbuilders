@@ -1,6 +1,7 @@
 bearbuilders-backend/.env
 bearbuilders-backend/node_modules
 bearbuilders-frontend/.env
+bearbuilders-frontend/.next
 bearbuilders-frontend/node_modules
 bearbuilders-contracts/.env
 bearbuilders-contracts/lib

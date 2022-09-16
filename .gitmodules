@@ -1,3 +1,6 @@
 [submodule "bearbuilders-contracts/lib/forge-std"]
 	path = bearbuilders-contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "bearbuilders-contracts/lib/openzeppelin-contracts"]
+	path = bearbuilders-contracts/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
