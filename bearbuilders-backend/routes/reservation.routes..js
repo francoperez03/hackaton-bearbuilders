@@ -4,7 +4,7 @@ const {
   getBookings,
   saveProduct,
   deleteProduct,
-} = require("../services/product.service");
+} = require("../services/reservation.service");
 
 const routes = [
   {
@@ -13,7 +13,7 @@ const routes = [
     handler: async (req, reply) => {
       try {
         console.log(req.query);
-        const bookings = await getReservation();
+        const bookings = await getReservations();
         reply.code(200).send(bookings);
       } catch (err) {
         throw boom.boomify(err);
@@ -25,7 +25,7 @@ const routes = [
     url: "/reservations/:id",
     handler: async (req, reply) => {
       try {
-        const products = await getReservations({ id: req.params.id });
+        const products = await getReservationById({ id: req.params.id });
         reply.code(200).send(products);
       } catch (err) {
         throw boom.boomify(err);
