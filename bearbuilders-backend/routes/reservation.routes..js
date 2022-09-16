@@ -1,42 +1,31 @@
 const boom = require("boom");
 
 const {
-  getProducts,
-  getProductById,
+  getBookings,
   saveProduct,
-  updateProduct,
   deleteProduct,
 } = require("../services/product.service");
 
 const routes = [
   {
     method: "GET",
-    url: "/products",
+    url: "/reservations",
     handler: async (req, reply) => {
       try {
         console.log(req.query);
-        const products = await getProducts();
-        reply.code(200).send(products);
+        const bookings = await getReservation();
+        reply.code(200).send(bookings);
       } catch (err) {
         throw boom.boomify(err);
       }
     },
-    schema: {
-      type: "object",
-      properties: {
-        foo: { type: "integer" },
-        bar: { type: "string" },
-      },
-      required: ["foo"],
-      additionalProperties: false,
-    },
   },
   {
     method: "GET",
-    url: "/products/:id",
+    url: "/reservations/:id",
     handler: async (req, reply) => {
       try {
-        const products = await getProductById({ id: req.params.id });
+        const products = await getReservations({ id: req.params.id });
         reply.code(200).send(products);
       } catch (err) {
         throw boom.boomify(err);
@@ -45,7 +34,7 @@ const routes = [
   },
   {
     method: "POST",
-    url: "/products",
+    url: "/reservation/buy",
     handler: async (req, reply) => {
       try {
         const product = await saveProduct({ params: req.body });
@@ -56,15 +45,12 @@ const routes = [
     },
   },
   {
-    method: "PUT",
-    url: "/products/:id",
+    method: "POST",
+    url: "/reservation/sell",
     handler: async (req, reply) => {
       try {
-        const products = await updateProduct({
-          id: req.params.id,
-          params: req.body,
-        });
-        reply.code(200).send(products);
+        const product = await saveProduct({ params: req.body });
+        reply.code(201).send(product);
       } catch (err) {
         throw boom.boomify(err);
       }
@@ -72,7 +58,7 @@ const routes = [
   },
   {
     method: "DELETE",
-    url: "/products/:id",
+    url: "/reservations/:id",
     handler: async (req, reply) => {
       try {
         await deleteProduct({ id: req.params.id });

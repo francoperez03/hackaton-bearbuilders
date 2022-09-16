@@ -3,14 +3,14 @@ require("dotenv").config();
 const logger = require("./utils/logger");
 const auth = require("./utils/auth-middleware");
 const cors = require("@fastify/cors");
-const productRoutes = require("./routes/product.routes");
+const routes = require("./routes/attendance.routes");
 const swagger = require("./utils/swagger");
 const fastify = require("fastify")(logger);
 fastify.register(cors);
 fastify.register(require("@fastify/swagger"), swagger.options);
 fastify.addHook("preValidation", auth);
 
-productRoutes.forEach((route) => {
+routes.forEach((route) => {
   fastify.route(route);
 });
 
