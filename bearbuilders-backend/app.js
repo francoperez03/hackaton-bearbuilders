@@ -1,9 +1,8 @@
-require("./utils/mongoose");
 require("dotenv").config();
 const logger = require("./utils/logger");
 const auth = require("./utils/auth-middleware");
 const cors = require("@fastify/cors");
-const routes = require("./routes/attendance.routes");
+const routes = require("./routes/reservation.routes.");
 const swagger = require("./utils/swagger");
 const fastify = require("fastify")(logger);
 fastify.register(cors);

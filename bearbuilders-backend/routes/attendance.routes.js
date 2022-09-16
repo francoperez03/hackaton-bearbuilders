@@ -1,6 +1,6 @@
 const boom = require("boom");
 
-const {} = require("../services/product.service");
+const {} = require("../services/reservation.service");
 
 const routes = [
   {

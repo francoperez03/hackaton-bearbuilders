@@ -1,5 +1,3 @@
-const Product = require("../models/product.model");
-
 const getReservations = async (req, reply) => {
   return reservations;
 };
@@ -32,9 +30,6 @@ const deleteProduct = async ({ id }) => {
 module.exports = {
   getReservations,
   getReservationById,
-  saveProduct,
-  updateProduct,
-  deleteProduct,
 };
 
 const reservations = [

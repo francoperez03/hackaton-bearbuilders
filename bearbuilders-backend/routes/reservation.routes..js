@@ -1,9 +1,8 @@
 const boom = require("boom");
 
 const {
-  getBookings,
-  saveProduct,
-  deleteProduct,
+  getReservations,
+  getReservationById,
 } = require("../services/reservation.service");
 
 const routes = [
