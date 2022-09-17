@@ -1,9 +1,11 @@
 import "@rainbow-me/rainbowkit/styles.css";
-import { AppProps } from "next/app";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import { NextUIProvider } from '@nextui-org/react';
+import NavBar from '../components/Navigation/Navigation'
+import "../styles/globals.scss"
 
 const metisMainnet = {
   id: 1088,
@@ -77,7 +79,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} modalSize="compact">
-        <Component {...pageProps} />
+        <NextUIProvider>
+          <NavBar/>
+          <Component {...pageProps} />
+        </NextUIProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   );
