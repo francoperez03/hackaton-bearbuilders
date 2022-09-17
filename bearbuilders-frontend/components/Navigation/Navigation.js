@@ -35,9 +35,13 @@ export default function Navigation() {
          <Navbar variant="sticky" >
             <Navbar.Brand>
                <Image src='/img/hotel-bell.png' width={30} height={25} />
-               <Text weight="extrabold" color="#8a6445" hideIn="xs" css={{ marginLeft: "1rem" }} size={20}>
-                  TICKO
-               </Text>
+               <Link href="/">
+                  <a>
+                     <Text weight="extrabold" color="#8a6445" hideIn="xs" css={{ marginLeft: "1rem" }} size={20}>
+                        TICKO
+                     </Text>
+                  </a>
+               </Link>
             </Navbar.Brand>
             <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
                <Navbar.Link href="/">Inicio</Navbar.Link>
