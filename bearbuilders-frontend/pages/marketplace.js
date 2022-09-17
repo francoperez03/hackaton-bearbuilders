@@ -1,30 +1,51 @@
-import React from 'react'
-import axios from 'axios'
-import Link from 'next/link';
-import { Button } from '@nextui-org/react';
+import React from "react";
+import axios from "axios";
+import Link from "next/link";
+import { Button } from "@nextui-org/react";
 import { Card, Row, Text } from "@nextui-org/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
+   console.log(reservations);
+   const reservationsNormal = reservations.slice(0, 3);
+   const reservationsBlue = reservations.slice(3, 10);
+   const [actualReservations, setActualReservations] =
+      useState(reservationsNormal);
    return (
-      <section className='marketplace'>
-
+      <section className="marketplace">
          <Button.Group
             color="gradient"
             ghost
-            className='marketplace__button-group'
+            className="marketplace__button-group"
          >
-            <Button>Reservas</Button>
-            <Button>Reservas Blue 😎</Button>
+            <Button
+               onClick={() => {
+                  setActualReservations(reservationsNormal);
+               }}
+            >
+               Reservas
+            </Button>
+            <Button
+               onClick={() => {
+                  setActualReservations(reservationsBlue);
+               }}
+            >
+               {" "}
+               Reservas Blue 😎
+            </Button>
          </Button.Group>
-         <section className='marketplace__cards'>
-            {reservations.map(reservation => (
+         <section className="marketplace__cards">
+            {actualReservations.map((reservation) => (
                <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
                   <a>
                      <Card isPressable>
                         <Card.Body css={{ p: 0 }}>
                            <Card.Image
-                              src={reservation.hotel.images[0].url || 'https://loremflickr.com/640/360'}
+                              src={
+                                 reservation.hotel.images[0].url ||
+                                 "https://loremflickr.com/640/360"
+                              }
                               objectFit="cover"
                               width="100%"
                               height={140}
@@ -34,8 +55,14 @@ export default function Marketplace({ reservations }) {
                         <Card.Footer css={{ justifyItems: "flex-start" }}>
                            <Row wrap="wrap" justify="space-between" align="center">
                               <Text b>{reservation.hotel.name}</Text>
-                              <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                 {'$2450'}
+                              <Text
+                                 css={{
+                                    color: "$accents7",
+                                    fontWeight: "$semibold",
+                                    fontSize: "$sm",
+                                 }}
+                              >
+                                 {"$2450"}
                               </Text>
                            </Row>
                         </Card.Footer>
@@ -45,9 +72,8 @@ export default function Marketplace({ reservations }) {
             ))}
          </section>
       </section>
-   )
+   );
 }
-
 
 export const getServerSideProps = async (context) => {
    const reservations = [
@@ -67,11 +93,12 @@ export const getServerSideProps = async (context) => {
             amenities: ["piscina", "desayuno", "wifi", "parking"],
             images: [
                {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/55261050.jpg?k=e8b2cd7accad1318122aa09bdcb5b9c5763b06d806bde349ef54d3667810d225&o=&hp=1",
+                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/163805332.jpg?k=adc3a9afbeb959b2c2ed28f09e3b1de67d06b89f62ad917138cc2469f9760e5f&o=&hp=1",
                   alt: "hotelimg",
                },
             ],
-            description: "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
+            description:
+               "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
          },
          location: {
             city: "Miami",
@@ -102,7 +129,7 @@ export const getServerSideProps = async (context) => {
       {
          id: "2",
          hotel: {
-            name: "Palacio Paz Boutique Hotel",
+            name: "Palacio Paz Hotel",
             address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
             telephone: "+5493876282042",
             mail: "palacio@gmail.com",
@@ -115,11 +142,12 @@ export const getServerSideProps = async (context) => {
             amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
             images: [
                {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228711058.jpg?k=89cadc97c727d845d2983f93d48457c41edfdee0fe73842480a89a3bd562e930&o=&hp=1",
+                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228712124.jpg?k=e0e5f3844b38dac09866e716040b0d9aba84c2a6eab063a55acd80b9595b59b5&o=&hp=1",
                   alt: "hotelimg",
                },
             ],
-            description: "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
+            description:
+               "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
          },
          location: {
             city: "Buenos Aires",
@@ -151,7 +179,8 @@ export const getServerSideProps = async (context) => {
          id: "4",
          hotel: {
             name: "Hotel Lutetia",
-            address: "45 Boulevard Raspail, Saint-Germain - 6º distrito, 75006 París, Francia",
+            address:
+               "45 Boulevard Raspail, Saint-Germain - 6º distrito, 75006 París, Francia",
             telephone: "+5493876282042",
             mail: "NYXHL@gmail.com",
             socialNetworks: [
@@ -167,7 +196,8 @@ export const getServerSideProps = async (context) => {
                   alt: "hotelimg",
                },
             ],
-            description: "El Hotel Lutetia es un emblemático hotel de lujo ubicado en el barrio de Saint-Germain-des-Prés. Está situado en la margen izquierda del río Sena, a 5 minutos a pie de los grandes almacenes Le Bon Marché y a 2 km del Museo del Louvre. El edificio del hotel es todo un símbolo de París y alberga 184 habitaciones, entre ellas 40 suites y 7 suites exclusivas. Cada una de ellas cuenta con WiFi gratuito, centros multimedia y baños de mármol. Algunas habitaciones tienen balcón con vistas a la Torre Eiffel. Además, algunas de las suites tienen azotea con terraza y vistas de 360 grados a París. El centro holístico de bienestar Akasha cuenta con centro de fitness, sauna, sala de vapor y piscina cubierta de 17 metros con luz natural durante el día. También ofrece una amplia gama de tratamientos de spa por un suplemento. ",
+            description:
+               "El Hotel Lutetia es un emblemático hotel de lujo ubicado en el barrio de Saint-Germain-des-Prés. Está situado en la margen izquierda del río Sena, a 5 minutos a pie de los grandes almacenes Le Bon Marché y a 2 km del Museo del Louvre. El edificio del hotel es todo un símbolo de París y alberga 184 habitaciones, entre ellas 40 suites y 7 suites exclusivas. Cada una de ellas cuenta con WiFi gratuito, centros multimedia y baños de mármol. Algunas habitaciones tienen balcón con vistas a la Torre Eiffel. Además, algunas de las suites tienen azotea con terraza y vistas de 360 grados a París. El centro holístico de bienestar Akasha cuenta con centro de fitness, sauna, sala de vapor y piscina cubierta de 17 metros con luz natural durante el día. También ofrece una amplia gama de tratamientos de spa por un suplemento. ",
          },
          location: {
             city: "Paris",
@@ -198,7 +228,7 @@ export const getServerSideProps = async (context) => {
       {
          id: "3",
          hotel: {
-            name: "NYX Hotel London Holborn",
+            name: "NYX Hotel Holborn",
             address: "Southampton Row,, Camden, Londres, WC1B 4AR, Reino Unido",
             telephone: "+5493876282042",
             mail: "NYXHL@gmail.com",
@@ -215,7 +245,8 @@ export const getServerSideProps = async (context) => {
                   alt: "hotelimg",
                },
             ],
-            description: "El NYX Hotel London Holborn by Leonardo Hotels alberga un centro de spa y bienestar y ofrece habitaciones de lujo y WiFi gratuita. Se halla a solo 5 minutos a pie del Museo Británico.",
+            description:
+               "El NYX Hotel London Holborn by Leonardo Hotels alberga un centro de spa y bienestar y ofrece habitaciones de lujo y WiFi gratuita. Se halla a solo 5 minutos a pie del Museo Británico.",
          },
          location: {
             city: "London",
@@ -248,7 +279,8 @@ export const getServerSideProps = async (context) => {
          id: "5",
          hotel: {
             name: "Melas Hotel Istanbul",
-            address: "Profesör Doktor Bülent Tarcan Caddesi Gayrettepe Beşiktaş, Besiktas, 34349 Estambul, Turquía –",
+            address:
+               "Profesör Doktor Bülent Tarcan Caddesi Gayrettepe Beşiktaş, Besiktas, 34349 Estambul, Turquía –",
             telephone: "+5493876282042",
             mail: "NYXHL@gmail.com",
             socialNetworks: [
@@ -264,7 +296,8 @@ export const getServerSideProps = async (context) => {
                   alt: "hotelimg",
                },
             ],
-            description: "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
+            description:
+               "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
          },
          location: {
             city: "Estambul",
@@ -295,7 +328,7 @@ export const getServerSideProps = async (context) => {
       {
          id: "6",
          hotel: {
-            name: "Tembo Beach Club & Resort",
+            name: "Tembo Resort",
             address: "23/2 Moo 4 Bophut, 84320 Koh Samui, Tailandia",
             telephone: "+5493876282042",
             mail: "NYXHL@gmail.com",
@@ -312,7 +345,8 @@ export const getServerSideProps = async (context) => {
                   alt: "hotelimg",
                },
             ],
-            description: "El Tembo Beach Club & Resort se encuentra en Koh Samui y ofrece restaurante, piscina al aire libre, bar y salón compartido. Hay servicio de habitaciones, cajero automático y WiFi gratuita en todas las instalaciones. El establecimiento ofrece servicio de alquiler de coches, jardín y solárium.",
+            description:
+               "El Tembo Beach Club & Resort se encuentra en Koh Samui y ofrece restaurante, piscina al aire libre, bar y salón compartido. Hay servicio de habitaciones, cajero automático y WiFi gratuita en todas las instalaciones. El establecimiento ofrece servicio de alquiler de coches, jardín y solárium.",
          },
          location: {
             city: "Samui",
@@ -343,7 +377,7 @@ export const getServerSideProps = async (context) => {
       {
          id: "7",
          hotel: {
-            name: "Oleo Cancun Playa Boutique All Inclusive Resort",
+            name: "Oleo Cancun Resort",
             address: "Blvd. Kukulcan KM 19.5 Zona Hotelera, 77500 Cancún, México",
             telephone: "+5493876282042",
             mail: "NYXHL@gmail.com",
@@ -360,7 +394,8 @@ export const getServerSideProps = async (context) => {
                   alt: "hotelimg",
                },
             ],
-            description: "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
+            description:
+               "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
          },
          location: {
             city: "Cancun",
@@ -388,7 +423,6 @@ export const getServerSideProps = async (context) => {
             ],
          },
       },
-
    ];
 
    return {

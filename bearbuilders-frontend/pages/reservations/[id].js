@@ -1,12 +1,10 @@
 import React from "react";
 import { useAccount } from "wagmi";
 import Web3Button from "./Web3Button";
-//import Image from 'next/image'
 import { Image } from "@nextui-org/react";
 import Web3ButtonTransfer from "./Web3ButtonTransfer";
 
 export default function ReservationDetail({ reservation }) {
-  const { address, status } = useAccount();
   return (
     <section className="reservation-detail">
       <section className="reservation-detail__img">
