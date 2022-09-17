@@ -6,9 +6,12 @@ import Image from "next/image";
 export default function ReservationDetail({ reservation }) {
   const { address, status } = useAccount();
   return (
-    <section className="reservation-detail">
-      <section className="reservation-detail__img">
-        <Image src="/img/hotel1.jpeg" width={700} height={500} />
+    <section className='reservation-detail'>
+      <section className='reservation-detail__img'>
+        <Image src='/img/hotel1.jpeg' width={700} height={500} />
+        <div className="icons">
+          <Image src='/img/icons.png' alt="Current Image" layout={'fill'} objectFit={'contain'} />
+        </div>
       </section>
       <section className="reservation-detail__content">
         <div className="reservation-detail__info">
