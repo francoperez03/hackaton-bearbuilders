@@ -1,6 +1,5 @@
 import { Card, Grid, Col, Row, Button, Text } from "@nextui-org/react";
 import { useState } from "react";
-import NotAuthenticated from "../components/NotAuthenticated/NotAuthenticated";
 import Link from "next/link";
 
 const Profile = () => {
@@ -51,7 +50,7 @@ const Profile = () => {
 
   return (
     <section className="profile">
-      {isLogged ? (
+      {
         <>
           <section className="profile__reservations">
             <h2 className="profile__reservations-title">Reservas</h2>
@@ -98,20 +97,6 @@ const Profile = () => {
                         🇫🇷 París, Francia
                       </Text>
                     </Col>
-                    <Col>
-                      <Row justify="flex-end">
-                        <Button flat auto rounded color="secondary">
-                          <Text
-                            css={{ color: "inherit" }}
-                            size={12}
-                            weight="bold"
-                            transform="uppercase"
-                          >
-                            Detalles
-                          </Text>
-                        </Button>
-                      </Row>
-                    </Col>
                   </Row>
                 </Card.Footer>
               </Card>
@@ -154,9 +139,7 @@ const Profile = () => {
             </div>
           </section>
         </>
-      ) : (
-        <NotAuthenticated isLogged={isLogged} setIsLogged={setIsLogged} />
-      )}
+      }
     </section>
   );
 };
