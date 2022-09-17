@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useAccount } from "wagmi";
-import { Web3Button } from "./Web3Button";
+import Web3Button from "./Web3Button";
 export default function ReservationDetail({ reservation }) {
   const { address, status } = useAccount();
   return (

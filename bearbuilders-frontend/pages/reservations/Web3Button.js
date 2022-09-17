@@ -5,7 +5,7 @@ import {
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-export function Web3Button({
+export default function Web3Button({
   contractAddress,
   functionName,
   idleText,
