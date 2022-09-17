@@ -19,6 +19,8 @@ export default function Web3ButtonTransfer({
 }) {
   const [buttonText, setButtonText] = useState(idleText);
 
+  const [buttonColor, setButtonColor] = useState('primary')
+
   //Approve
   const { config: configApprove } = usePrepareContractWrite({
     addressOrName: approveContractAddress,
@@ -63,6 +65,7 @@ export default function Web3ButtonTransfer({
   useEffect(() => {
     if (isLoadingApprove) {
       console.log("CARGANDO");
+      setButtonColor('warning')
       setButtonText(pendingText);
     }
   }, [isLoadingApprove]);
@@ -77,15 +80,17 @@ export default function Web3ButtonTransfer({
   useEffect(() => {
     if (isSuccessReservation) {
       console.log("SUPER APROBADO", dataReservation?.hash);
+      setButtonColor('#8a6445')
       setButtonText(succesText);
     }
   }, [isSuccessReservation]);
+
   const onClick = () => {
     writeApprove(contractAddress, 1, 1);
   };
   return (
     <div>
-      <Button onClick={onClick}>{buttonText}</Button>
+      <Button onClick={onClick} color={ buttonColor }>{buttonText}</Button>
       {/* {isSuccess && (
         <div>
           {succesText}

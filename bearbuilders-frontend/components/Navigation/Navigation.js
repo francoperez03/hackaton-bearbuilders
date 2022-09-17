@@ -32,11 +32,6 @@ export default function Navigation() {
     }
   }, [status]);
 
-  // switch (status) {
-  //    case "connected": return<></>;
-  //    case "": return<></>;
-  //    default : return<></>;
-  // }
   return (
     <Layout>
       <Navbar variant="sticky">
