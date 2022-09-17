@@ -59,8 +59,6 @@ export default function Web3ButtonTransfer({
     useWaitForTransaction({
       hash: dataReservation?.hash,
     });
-  console.log({ errorApprove });
-  console.log({ isErrorApprove });
   console.log({ writeReservation });
   useEffect(() => {
     if (isLoadingApprove) {
