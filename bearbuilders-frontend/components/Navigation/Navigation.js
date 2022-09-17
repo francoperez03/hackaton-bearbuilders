@@ -35,8 +35,10 @@ export default function Navigation() {
          <Navbar variant="sticky" >
             <Navbar.Brand>
                <Link href="/">
+                  <Image src='/img/hotel-bell.png' width={30} height={25} />
+               </Link>
+               <Link href="/">
                   <a>
-                     <Image src='/img/hotel-bell.png' width={30} height={25} />
                      <Text weight="extrabold" color="#8a6445" hideIn="xs" css={{ marginLeft: "1rem" }} size={20}>
                         TICKO
                      </Text>
