@@ -38,21 +38,28 @@ export default function Web3ButtonTransfer({
     });
 
   // //Reservation
-  const { config: configReservation } = usePrepareContractWrite({
+  const {
+    config: configReservation,
+    error: errorApprove,
+    isError: isErrorApprove,
+  } = usePrepareContractWrite({
     addressOrName: contractAddress,
     contractInterface: JSON.parse(abiERC721.result),
     functionName: functionName,
-    args: [0, "0xA81895CE092398F043432bCe85D4579332aC61d8", 1, 1000],
+    args: ["0xA81895CE092398F043432bCe85D4579332aC61d8", 1, 1000],
     overrides: {
       gasLimit: 3000000,
     },
   });
+
   const { data: dataReservation, write: writeReservation } =
     useContractWrite(configReservation);
+
   const { isLoading: isLoadingReservation, isSuccess: isSuccessReservation } =
     useWaitForTransaction({
       hash: dataReservation?.hash,
     });
+  console.log({ writeReservation });
   useEffect(() => {
     if (isLoadingApprove) {
       console.log("CARGANDO");
@@ -66,8 +73,9 @@ export default function Web3ButtonTransfer({
       writeReservation();
     }
   }, [isSuccessApprove]);
+
   useEffect(() => {
-    if (isSuccessApprove) {
+    if (isSuccessReservation) {
       console.log("SUPER APROBADO", dataReservation?.hash);
       setButtonText(succesText);
     }
