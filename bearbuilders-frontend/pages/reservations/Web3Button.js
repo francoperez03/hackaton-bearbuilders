@@ -67,7 +67,7 @@ export default function Web3Button({
     }
   }, [isSuccessApprove]);
   useEffect(() => {
-    if (isSuccessApprove) {
+    if (isSuccessReservation) {
       console.log("SUPER APROBADO", dataReservation?.hash);
       setButtonText(succesText);
     }
