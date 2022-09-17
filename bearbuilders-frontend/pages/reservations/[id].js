@@ -3,6 +3,8 @@ import { useAccount } from "wagmi";
 import Web3Button from "./Web3Button";
 import Web3ButtonTransfer from "./Web3ButtonTransfer";
 import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 
 export default function ReservationDetail({ reservation }) {
   const { address, status } = useAccount();
@@ -48,6 +50,12 @@ export default function ReservationDetail({ reservation }) {
           </p>
         </div>
         <div className="reservation-detail__content-buttons">
+          <ConnectButton
+            label="Conectá tu billetera"
+          // accountStatus="address"
+          // chainStatus="none"
+          // showBalance={false}
+          />
           <Web3Button
             approveContractAddress={
               "0x0459ee30F112654b25523c289a89445321dF6589"
