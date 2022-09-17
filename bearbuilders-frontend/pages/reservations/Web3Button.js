@@ -5,6 +5,8 @@ import {
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
+import { Button } from "@nextui-org/react";
+
 export default function Web3Button({
   contractAddress,
   functionName,
@@ -25,9 +27,9 @@ export default function Web3Button({
 
   return (
     <div>
-      <button disabled={!write || isLoading} onClick={() => write()}>
+      <Button disabled={!write || isLoading} onClick={() => write()}>
         {isLoading ? pendingText : idleText}
-      </button>
+      </Button>
       {isSuccess && (
         <div>
           {succesText}

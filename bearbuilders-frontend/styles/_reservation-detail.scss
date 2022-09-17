@@ -1,0 +1,41 @@
+.reservation-detail {
+   margin: 1rem 3rem;
+   display: flex;
+   gap: 2rem;
+   border: 1px solid red;
+   justify-content: space-around;
+
+   &__info {
+      &-price {
+         font-weight: 300;
+      }
+      &-description{
+         padding: 1rem 0;
+      }
+   }
+
+   &__img {
+      display: flex;
+      width: 50%;
+      height: 100%;
+      justify-content: center;
+   }
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid red;
+      width: 50%;
+      padding: 0 1rem;
+
+      &-buttons {
+         display: flex;
+         justify-content: center;
+         gap: 1rem;
+         padding: 1rem 0;
+      }
+   }
+
+
+}
