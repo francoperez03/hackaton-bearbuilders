@@ -9,14 +9,14 @@ export default function ReservationDetail({ reservation }) {
       <h1>city: {reservation.location.city}</h1>
       <h1>reservation status: {reservation.reservation.status}</h1>
       <Web3Button
-        contractAddress={"0xaf0326d92b97df1221759476b072abfd8084f9be"}
-        functionName={"approve"}
+        contractAddress={"0xDa8707403512c461570e6685EC6fB3529888B00A"}
+        functionName={"addHotel"}
         idleText={"Aprobar"}
         pendingText={"Aprobando"}
         succesText={"Aprobado!"}
       />
       <Web3Button
-        contractAddress={"0xaf0326d92b97df1221759476b072abfd8084f9be"}
+        contractAddress={"0xDa8707403512c461570e6685EC6fB3529888B00A"}
         functionName={"makeAReservation"}
         idleText={"Reservar"}
         pendingText={"Reservado"}
