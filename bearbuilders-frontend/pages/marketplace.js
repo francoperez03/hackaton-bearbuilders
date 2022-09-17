@@ -3,11 +3,9 @@ import axios from "axios";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
 import { Card, Row, Text } from "@nextui-org/react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
-   console.log(reservations);
    const reservationsNormal = reservations.slice(0, 3);
    const reservationsBlue = reservations.slice(3, 10);
    const [actualReservations, setActualReservations] =
@@ -32,7 +30,7 @@ export default function Marketplace({ reservations }) {
                }}
             >
                {" "}
-               Reservas Blue 😎
+               Hospedaje Flash
             </Button>
          </Button.Group>
          <section className="marketplace__cards">
@@ -46,9 +44,8 @@ export default function Marketplace({ reservations }) {
                                  reservation.hotel.images[0].url ||
                                  "https://loremflickr.com/640/360"
                               }
-                              objectFit="cover"
-                              width="100%"
-                              height={140}
+                              objectFit="fit"
+                              height={240}
                               alt={reservation.hotel.images.alt}
                            />
                         </Card.Body>

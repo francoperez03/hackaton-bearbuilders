@@ -16,6 +16,7 @@
 
    &__img {
       display: flex;
+      flex-wrap: wrap;
       width: 50%;
       height: 100%;
       flex-direction: column;

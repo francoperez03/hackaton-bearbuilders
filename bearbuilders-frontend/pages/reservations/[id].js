@@ -8,13 +8,10 @@ export default function ReservationDetail({ reservation }) {
   return (
     <section className="reservation-detail">
       <section className="reservation-detail__img">
-          <Image
-            width={700}
-            height={500}
-            layout={"fill"}
-            src={reservation.hotel.images[0].url}
-            alt="Default Image"
-          />
+        <Image
+          src={reservation.hotel.images[0].url}
+          alt="Default Image"
+        />
         <div className="icons">
           <Image src='/img/icons.png' alt="Current Image" layout={'fill'} objectFit={'contain'} />
         </div>
@@ -27,7 +24,7 @@ export default function ReservationDetail({ reservation }) {
           <p className="reservation-detail__info-description">
             El hotel ofrece amplias suites de lujo con baño de mármol, preciosos jardines y bares y restaurantes gourmet ostentosos. Este es el único hotel de la exclusiva zona residencial de Recoleta con una pileta al aire libre en el jardín. El alojamiento también cuenta con un spa galardonado y gimnasio de última generación. Hay conexión de wifi gratis.
           </p>
-          
+
           <p className="reservation-detail__info-description">
             El restaurante de diseño Elena sirve cocina argentina gourmet y el bar Pony Line, el primer bar argentino inspirado en el deporte del polo, ofrece cócteles personalizados, preparados por bármanes expertos. El restaurante Nuestro Secreto, con un moderno ambiente informal interior y al aire libre, está junto a la pileta y prepara barbacoas al estilo argentino.
           </p>
@@ -78,7 +75,7 @@ export const getServerSideProps = async (context) => {
         amenities: ["piscina", "desayuno", "wifi", "parking"],
         images: [
           {
-            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/55261050.jpg?k=e8b2cd7accad1318122aa09bdcb5b9c5763b06d806bde349ef54d3667810d225&o=&hp=1",
+            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/163805332.jpg?k=adc3a9afbeb959b2c2ed28f09e3b1de67d06b89f62ad917138cc2469f9760e5f&o=&hp=1",
             alt: "hotelimg",
           },
         ],
@@ -114,7 +111,7 @@ export const getServerSideProps = async (context) => {
     {
       id: "2",
       hotel: {
-        name: "Palacio Paz Boutique Hotel",
+        name: "Palacio Paz Hotel",
         address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
         telephone: "+5493876282042",
         mail: "palacio@gmail.com",
@@ -127,7 +124,7 @@ export const getServerSideProps = async (context) => {
         amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
         images: [
           {
-            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228711058.jpg?k=89cadc97c727d845d2983f93d48457c41edfdee0fe73842480a89a3bd562e930&o=&hp=1",
+            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228712124.jpg?k=e0e5f3844b38dac09866e716040b0d9aba84c2a6eab063a55acd80b9595b59b5&o=&hp=1",
             alt: "hotelimg",
           },
         ],
@@ -213,7 +210,7 @@ export const getServerSideProps = async (context) => {
     {
       id: "3",
       hotel: {
-        name: "NYX Hotel London Holborn",
+        name: "NYX Hotel Holborn",
         address: "Southampton Row,, Camden, Londres, WC1B 4AR, Reino Unido",
         telephone: "+5493876282042",
         mail: "NYXHL@gmail.com",
@@ -259,6 +256,7 @@ export const getServerSideProps = async (context) => {
         ],
       },
     },
+
     {
       id: "5",
       hotel: {
@@ -312,7 +310,7 @@ export const getServerSideProps = async (context) => {
     {
       id: "6",
       hotel: {
-        name: "Tembo Beach Club & Resort",
+        name: "Tembo Resort",
         address: "23/2 Moo 4 Bophut, 84320 Koh Samui, Tailandia",
         telephone: "+5493876282042",
         mail: "NYXHL@gmail.com",
@@ -361,7 +359,7 @@ export const getServerSideProps = async (context) => {
     {
       id: "7",
       hotel: {
-        name: "Oleo Cancun Playa Boutique All Inclusive Resort",
+        name: "Oleo Cancun Resort",
         address: "Blvd. Kukulcan KM 19.5 Zona Hotelera, 77500 Cancún, México",
         telephone: "+5493876282042",
         mail: "NYXHL@gmail.com",
