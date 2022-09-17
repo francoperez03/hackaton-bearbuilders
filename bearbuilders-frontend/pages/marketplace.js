@@ -6,174 +6,173 @@ import { Card, Row, Text } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
+  const reservationsNormal = reservations.slice(0, 3);
+  const reservationsBlue = reservations.slice(3, 6);
+  const [actualReservations, setActualReservations] =
+    useState(reservationsNormal);
 
-   const reservationsNormal = reservations.slice(0, 3);
-   const reservationsBlue = reservations.slice(3, 6);
-   const [actualReservations, setActualReservations] =
-      useState(reservationsNormal);
-   
-   return (
-      <section className="marketplace">
-         <Button.Group
-            color="gradient"
-            ghost
-            className="marketplace__button-group"
-         >
-            <Button
-               onClick={() => {
-                  setActualReservations(reservationsNormal);
-               }}
-            >
-               Reservas
-            </Button>
-            <Button
-               onClick={() => {
-                  setActualReservations(reservationsBlue);
-               }}
-            >
-               {" "}
-               Hospedaje Flash
-            </Button>
-         </Button.Group>
-         <section className="marketplace__cards">
-            {actualReservations.map((reservation) => (
-               <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
-                  <a>
-                     <Card isPressable>
-                        <Card.Body css={{ p: 0 }}>
-                           <Card.Image
-                              src={
-                                 reservation.hotel.images[0].url ||
-                                 "https://loremflickr.com/640/360"
-                              }
-                              objectFit="fit"
-                              height={240}
-                              alt={reservation.hotel.images.alt}
-                           />
-                        </Card.Body>
-                        <Card.Footer css={{ justifyItems: "flex-start" }}>
-                           <Row wrap="wrap" justify="space-between" align="center">
-                              <Text b>{reservation.hotel.name}</Text>
-                              <Text
-                                 css={{
-                                    color: "$accents7",
-                                    fontWeight: "$semibold",
-                                    fontSize: "$sm",
-                                 }}
-                              >
-                                 {"$2450"}
-                              </Text>
-                           </Row>
-                        </Card.Footer>
-                     </Card>
-                  </a>
-               </Link>
-            ))}
-         </section>
+  return (
+    <section className="marketplace">
+      <Button.Group
+        color="gradient"
+        ghost
+        className="marketplace__button-group"
+      >
+        <Button
+          onClick={() => {
+            setActualReservations(reservationsNormal);
+          }}
+        >
+          Reservas
+        </Button>
+        <Button
+          onClick={() => {
+            setActualReservations(reservationsBlue);
+          }}
+        >
+          {" "}
+          Hospedaje Flash
+        </Button>
+      </Button.Group>
+      <section className="marketplace__cards">
+        {actualReservations.map((reservation) => (
+          <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
+            <a>
+              <Card isPressable>
+                <Card.Body css={{ p: 0 }}>
+                  <Card.Image
+                    src={
+                      reservation.hotel.images[0].url ||
+                      "https://loremflickr.com/640/360"
+                    }
+                    objectFit="fit"
+                    height={240}
+                    alt={reservation.hotel.images.alt}
+                  />
+                </Card.Body>
+                <Card.Footer css={{ justifyItems: "flex-start" }}>
+                  <Row wrap="wrap" justify="space-between" align="center">
+                    <Text b>{reservation.hotel.name}</Text>
+                    <Text
+                      css={{
+                        color: "$accents7",
+                        fontWeight: "$semibold",
+                        fontSize: "$sm",
+                      }}
+                    >
+                      {"$2450"}
+                    </Text>
+                  </Row>
+                </Card.Footer>
+              </Card>
+            </a>
+          </Link>
+        ))}
       </section>
+    </section>
   );
 }
 
 export const getServerSideProps = async (context) => {
-   const reservations = [
-      {
-         id: "1",
-         hotel: {
-            name: "Grand Beach Hotel",
-            address: "4835 Collins Avenue, Miami Beach, FL 33140, Estados Unidos",
-            telephone: "+5493876282042",
-            mail: "tiko@gmail.com",
-            socialNetworks: [
-               {
-                  name: "facebook",
-                  url: "facebook/hotelfb",
-               },
-            ],
-            amenities: ["piscina", "desayuno", "wifi", "parking"],
-            images: [
-               {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/163805332.jpg?k=adc3a9afbeb959b2c2ed28f09e3b1de67d06b89f62ad917138cc2469f9760e5f&o=&hp=1",
-                  alt: "hotelimg",
-               },
-            ],
-            description:
-               "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
-         },
-         location: {
-            city: "Miami",
-            state: [],
-            country: "USA",
-         },
-         reservation: {
-            status: "pending",
-            startDate: "14 oct 2022",
-            endDate: "18 oct 2022",
-            trace: [
-               {
-                  userId: "",
-                  reservationDate: "",
-                  valid: true,
-               },
-               {
-                  userId: "",
-                  reservationDate: "",
-               },
-               {
-                  userId: "",
-                  reservationDate: "",
-               },
-            ],
-         },
+  const reservations = [
+    {
+      id: "1",
+      hotel: {
+        name: "Grand Beach Hotel",
+        address: "4835 Collins Avenue, Miami Beach, FL 33140, Estados Unidos",
+        telephone: "+5493876282042",
+        mail: "tiko@gmail.com",
+        socialNetworks: [
+          {
+            name: "facebook",
+            url: "facebook/hotelfb",
+          },
+        ],
+        amenities: ["piscina", "desayuno", "wifi", "parking"],
+        images: [
+          {
+            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/163805332.jpg?k=adc3a9afbeb959b2c2ed28f09e3b1de67d06b89f62ad917138cc2469f9760e5f&o=&hp=1",
+            alt: "hotelimg",
+          },
+        ],
+        description:
+          "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
       },
-      {
-         id: "2",
-         hotel: {
-            name: "Palacio Paz Hotel",
-            address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
-            telephone: "+5493876282042",
-            mail: "palacio@gmail.com",
-            socialNetworks: [
-               {
-                  name: "facebook",
-                  url: "facebook/hotelfb",
-               },
-            ],
-            amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
-            images: [
-               {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228712124.jpg?k=e0e5f3844b38dac09866e716040b0d9aba84c2a6eab063a55acd80b9595b59b5&o=&hp=1",
-                  alt: "hotelimg",
-               },
-            ],
-            description:
-               "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
-         },
-         location: {
-            city: "Buenos Aires",
-            state: [],
-            country: "Argentina",
-         },
-         reservation: {
-            status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
-            trace: [
-               {
-                  userId: "",
-                  reservationDate: "",
-                  valid: true,
-               },
-               {
-                  userId: "",
-                  reservationDate: "",
-               },
-               {
-                  userId: "",
-                  reservationDate: "",
-               },
-            ],
-         },
+      location: {
+        city: "Miami",
+        state: [],
+        country: "USA",
       },
+      reservation: {
+        status: "pending",
+        startDate: "14 oct 2022",
+        endDate: "18 oct 2022",
+        trace: [
+          {
+            userId: "",
+            reservationDate: "",
+            valid: true,
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+        ],
+      },
+    },
+    {
+      id: "2",
+      hotel: {
+        name: "Palacio Paz Hotel",
+        address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
+        telephone: "+5493876282042",
+        mail: "palacio@gmail.com",
+        socialNetworks: [
+          {
+            name: "facebook",
+            url: "facebook/hotelfb",
+          },
+        ],
+        amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
+        images: [
+          {
+            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228712124.jpg?k=e0e5f3844b38dac09866e716040b0d9aba84c2a6eab063a55acd80b9595b59b5&o=&hp=1",
+            alt: "hotelimg",
+          },
+        ],
+        description:
+          "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
+      },
+      location: {
+        city: "Buenos Aires",
+        state: [],
+        country: "Argentina",
+      },
+      reservation: {
+        status: "pending",
+        startDate: "1 nov 2022",
+        endDate: "8 nov 2022",
+        trace: [
+          {
+            userId: "",
+            reservationDate: "",
+            valid: true,
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+        ],
+      },
+    },
     {
       id: "2",
       hotel: {

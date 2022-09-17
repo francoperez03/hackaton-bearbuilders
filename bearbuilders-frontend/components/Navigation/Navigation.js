@@ -7,8 +7,7 @@ import { useState, useEffect } from "react";
 
 export default function Navigation() {
   const { status } = useAccount();
-  const [button, setButton] = useState(<></>);
-  console.log({ status });
+  const [button, setButton] = useState();
   useEffect(() => {
     if (status) {
       if (status === "connected") {
@@ -27,28 +26,23 @@ export default function Navigation() {
           />
         );
       }
-    } else {
-      setButton(<></>);
     }
   }, [status]);
-
   return (
     <Layout>
       <Navbar variant="sticky">
         <Navbar.Brand>
           <Link href="/">
-            <a>
-              <Image src="/img/hotel-bell.png" width={30} height={25} />
-              <Text
-                weight="extrabold"
-                color="#8a6445"
-                hideIn="xs"
-                css={{ marginLeft: "1rem" }}
-                size={20}
-              >
-                TICKO
-              </Text>
-            </a>
+            <Image src="/img/hotel-bell.png" width={30} height={25} />
+            <Text
+              weight="extrabold"
+              color="#8a6445"
+              hideIn="xs"
+              css={{ marginLeft: "1rem" }}
+              size={20}
+            >
+              TICKO
+            </Text>
           </Link>
         </Navbar.Brand>
         <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
