@@ -13,6 +13,7 @@ contract Booking is Ownable {
     event HotelAdded(address indexed hotel);
     event ReservationSuccessfully(address indexed hotel, address indexed user, uint256 indexed tokenId);
     event ChangeReservationOwner(address indexed previousOwner, address indexed newOwner, uint256 indexed tokenId);
+    event BurnReservation(uint256 indexed tokenId, address indexed user);
 
     mapping(address => uint256) hotelTransactions;
     mapping(address => uint256[]) reservations;
@@ -21,23 +22,16 @@ contract Booking is Ownable {
     ReserveERC721 reserveToken;
     POASERC721 poasToken;
 
-    function getReservations(address _userId) public view returns(uint256[] memory){
-        return reservations[_userId];
-    }
-    function initialize(address _transferToken, address _reserveToken, address _poasToken) public onlyOwner {
+    function initialize(address _transferToken, address _reserveToken, address _poasToken) public /*onlyOwner*/ {
         transferToken = TransferTokenERC20(_transferToken);
         reserveToken = ReserveERC721(_reserveToken);
         poasToken = POASERC721(_poasToken);
     } 
 
-    function addHotel(address _hotel) public onlyOwner {
+    function addHotel(address _hotel) public /*onlyOwner*/ {
         hotelTransactions[_hotel] = 0;
 
         emit HotelAdded(_hotel);
-    }
-
-    function balanceOfHotel(address _hotel) public view returns(uint256) {
-        return transferToken.balanceOf(_hotel);
     }
 
     function makeAReservation(address _hotel, uint256 _expiryTimestamp, uint256 _amount) public returns (uint256 _tokenId){
@@ -79,6 +73,32 @@ contract Booking is Ownable {
             }
         }
         poasToken.mint(_userId);
+
+        emit BurnReservation(_tokenId, _userId);
+    }
+
+    function getHotelTransactions(address _hotel) public view returns(uint256){
+        return hotelTransactions[_hotel];
+    }
+
+    function getReserveToken() public view returns(address){
+        return address(reserveToken);
+    }
+
+    function getTransferToken() public view returns(address){
+        return address(transferToken);
+    }
+
+    function getPoasToken() public view returns(address){
+        return address(poasToken);
+    }
+
+    function getReservations(address _userId) public view returns(uint256[] memory){
+        return reservations[_userId];
+    }
+
+    function balanceOfHotel(address _hotel) public view returns(uint256) {
+        return transferToken.balanceOf(_hotel);
     }
 
 }

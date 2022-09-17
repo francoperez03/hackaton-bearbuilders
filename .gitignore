@@ -7,3 +7,4 @@ bearbuilders-contracts/.env
 bearbuilders-contracts/lib
 bearbuilders-contracts/out
 bearbuilders-contracts/cache
+bearbuilders-contracts/broadcast

@@ -5,7 +5,6 @@ import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import "forge-std/Vm.sol";
 import "../src/Booking.sol";
-// import { ERC20 } from "../lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 import { ReserveERC721 } from "../src/ReserveERC721.sol";
 import { TransferTokenERC20 } from "../src/TransferTokenERC20.sol";
 import { POASERC721 } from "../src/POASERC721.sol";
