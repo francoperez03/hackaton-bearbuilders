@@ -1,0 +1,11 @@
+.not-authenticated {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 90vh;
+   width: 100vw;
+   background-image: url('../../public/img/landmarks.png');
+   background-size: 100%;
+   background-repeat: no-repeat;
+   background-position: bottom;
+}
