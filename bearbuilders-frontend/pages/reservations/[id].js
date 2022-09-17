@@ -1,41 +1,26 @@
 import React from "react";
 import { useAccount } from "wagmi";
 import Web3Button from "./Web3Button";
-<<<<<<< HEAD
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 //import Image from 'next/image'
 import { Image } from "@nextui-org/react";
-=======
 import Web3ButtonTransfer from "./Web3ButtonTransfer";
 import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
->>>>>>> 4c5f8faee4656040c4e2f23b1f2410d57f9e9744
 
 export default function ReservationDetail({ reservation }) {
   const { address, status } = useAccount();
   return (
-<<<<<<< HEAD
-    <section className='reservation-detail'>
-      <section className='reservation-detail__img'>
+    <section className="reservation-detail">
+      <section className="reservation-detail__img">
         <div className="icons">
           <Image
             width={700}
             height={500}
-            layout={'fill'}
+            layout={"fill"}
             src={reservation.hotel.images[0].url}
             alt="Default Image"
             objectFit="cover"
-=======
-    <section className="reservation-detail">
-      <section className="reservation-detail__img">
-        <Image src="/img/hotel1.jpeg" width={700} height={500} />
-        <div className="icons">
-          <Image
-            src="/img/icons.png"
-            alt="Current Image"
-            layout={"fill"}
-            objectFit={"contain"}
->>>>>>> 4c5f8faee4656040c4e2f23b1f2410d57f9e9744
           />
         </div>
       </section>
@@ -117,7 +102,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
+        description:
+          "Este hotel de playa goza de vistas al océano Atlántico, alberga una piscina al aire libre en la 7ª planta y ofrece acceso privado a la playa y suites amplias. El Grand Beach Hotel está a 5,9 km de South Beach.",
       },
       location: {
         city: "Miami",
@@ -165,7 +151,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
+        description:
+          "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
       },
       location: {
         city: "Buenos Aires",
@@ -197,7 +184,8 @@ export const getServerSideProps = async (context) => {
       id: "4",
       hotel: {
         name: "Hotel Lutetia",
-        address: "45 Boulevard Raspail, Saint-Germain - 6º distrito, 75006 París, Francia",
+        address:
+          "45 Boulevard Raspail, Saint-Germain - 6º distrito, 75006 París, Francia",
         telephone: "+5493876282042",
         mail: "NYXHL@gmail.com",
         socialNetworks: [
@@ -213,7 +201,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El Hotel Lutetia es un emblemático hotel de lujo ubicado en el barrio de Saint-Germain-des-Prés. Está situado en la margen izquierda del río Sena, a 5 minutos a pie de los grandes almacenes Le Bon Marché y a 2 km del Museo del Louvre. El edificio del hotel es todo un símbolo de París y alberga 184 habitaciones, entre ellas 40 suites y 7 suites exclusivas. Cada una de ellas cuenta con WiFi gratuito, centros multimedia y baños de mármol. Algunas habitaciones tienen balcón con vistas a la Torre Eiffel. Además, algunas de las suites tienen azotea con terraza y vistas de 360 grados a París. El centro holístico de bienestar Akasha cuenta con centro de fitness, sauna, sala de vapor y piscina cubierta de 17 metros con luz natural durante el día. También ofrece una amplia gama de tratamientos de spa por un suplemento. ",
+        description:
+          "El Hotel Lutetia es un emblemático hotel de lujo ubicado en el barrio de Saint-Germain-des-Prés. Está situado en la margen izquierda del río Sena, a 5 minutos a pie de los grandes almacenes Le Bon Marché y a 2 km del Museo del Louvre. El edificio del hotel es todo un símbolo de París y alberga 184 habitaciones, entre ellas 40 suites y 7 suites exclusivas. Cada una de ellas cuenta con WiFi gratuito, centros multimedia y baños de mármol. Algunas habitaciones tienen balcón con vistas a la Torre Eiffel. Además, algunas de las suites tienen azotea con terraza y vistas de 360 grados a París. El centro holístico de bienestar Akasha cuenta con centro de fitness, sauna, sala de vapor y piscina cubierta de 17 metros con luz natural durante el día. También ofrece una amplia gama de tratamientos de spa por un suplemento. ",
       },
       location: {
         city: "Paris",
@@ -261,7 +250,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El NYX Hotel London Holborn by Leonardo Hotels alberga un centro de spa y bienestar y ofrece habitaciones de lujo y WiFi gratuita. Se halla a solo 5 minutos a pie del Museo Británico.",
+        description:
+          "El NYX Hotel London Holborn by Leonardo Hotels alberga un centro de spa y bienestar y ofrece habitaciones de lujo y WiFi gratuita. Se halla a solo 5 minutos a pie del Museo Británico.",
       },
       location: {
         city: "London",
@@ -293,7 +283,8 @@ export const getServerSideProps = async (context) => {
       id: "5",
       hotel: {
         name: "Melas Hotel Istanbul",
-        address: "Profesör Doktor Bülent Tarcan Caddesi Gayrettepe Beşiktaş, Besiktas, 34349 Estambul, Turquía –",
+        address:
+          "Profesör Doktor Bülent Tarcan Caddesi Gayrettepe Beşiktaş, Besiktas, 34349 Estambul, Turquía –",
         telephone: "+5493876282042",
         mail: "NYXHL@gmail.com",
         socialNetworks: [
@@ -309,7 +300,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
+        description:
+          "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
       },
       location: {
         city: "Estambul",
@@ -357,7 +349,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El Tembo Beach Club & Resort se encuentra en Koh Samui y ofrece restaurante, piscina al aire libre, bar y salón compartido. Hay servicio de habitaciones, cajero automático y WiFi gratuita en todas las instalaciones. El establecimiento ofrece servicio de alquiler de coches, jardín y solárium.",
+        description:
+          "El Tembo Beach Club & Resort se encuentra en Koh Samui y ofrece restaurante, piscina al aire libre, bar y salón compartido. Hay servicio de habitaciones, cajero automático y WiFi gratuita en todas las instalaciones. El establecimiento ofrece servicio de alquiler de coches, jardín y solárium.",
       },
       location: {
         city: "Samui",
@@ -405,7 +398,8 @@ export const getServerSideProps = async (context) => {
             alt: "hotelimg",
           },
         ],
-        description: "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
+        description:
+          "El Melas Hotel Istanbul está ubicado en Estambul, a 2,2 km del rascacielos Istanbul Sapphire, y ofrece restaurante, aparcamiento privado gratuito, centro de fitness y bar. Este hotel está bien situado en el distrito de Sisli y cuenta con salón común, piscina cubierta y hammam. Hay recepción 24 horas, servicio de habitaciones y cambio de divisa.",
       },
       location: {
         city: "Cancun",
@@ -433,7 +427,6 @@ export const getServerSideProps = async (context) => {
         ],
       },
     },
-
   ];
   return {
     props: {
