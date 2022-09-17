@@ -27,10 +27,10 @@ contract ReserveERC721 is ERC721 {
     }
 
     function mint(address _to, uint256 _expiryTimestamp) public onlyMinter returns(uint256) {
+        _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _mint(_to, newItemId);
         expiryTimestamp[newItemId] = _expiryTimestamp;
-        _tokenIds.increment();
         return newItemId;
     }
 

@@ -1,10 +1,9 @@
 import { Card, Grid, Col, Row, Button, Text } from "@nextui-org/react";
-import { useState } from 'react';
-import NotAuthenticated from '../components/NotAuthenticated/NotAuthenticated'
+import { useState } from "react";
+import NotAuthenticated from "../components/NotAuthenticated/NotAuthenticated";
 
 const Profile = () => {
-
-  const [isLogged, setIsLogged] = useState(false)
+  const [isLogged, setIsLogged] = useState(false);
 
   const list = [
     {
@@ -50,12 +49,12 @@ const Profile = () => {
   ];
 
   return (
-    <section className='profile'>
-      {isLogged
-        ? <>
-          <section className='profile__reservations'>
-            <h2 className='profile__reservations-title'>Reservas</h2>
-            <div className='profile__reservations-items'>
+    <section className="profile">
+      {isLogged ? (
+        <>
+          <section className="profile__reservations">
+            <h2 className="profile__reservations-title">Reservas</h2>
+            <div className="profile__reservations-items">
               <Card isHoverable css={{ w: "75%", h: "350px" }}>
                 {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
               <Col>
@@ -81,7 +80,8 @@ const Profile = () => {
                   css={{
                     position: "absolute",
                     bgBlur: "#ffffff66",
-                    borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
+                    borderTop:
+                      "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
                     bottom: 0,
                     zIndex: 1,
                   }}
@@ -114,9 +114,9 @@ const Profile = () => {
               </Card>
             </div>
           </section>
-          <section className='profile__history'>
-            <h2 className='profile__history-title'>Proof of Stay</h2>
-            <div className='profile__history-items'>
+          <section className="profile__history">
+            <h2 className="profile__history-title">Proof of Stay</h2>
+            <div className="profile__history-items">
               <Grid.Container gap={2} justify="flex-start">
                 {list.map((item, index) => (
                   <Grid xs={6} sm={6} key={index}>
@@ -133,7 +133,13 @@ const Profile = () => {
                       <Card.Footer css={{ justifyItems: "flex-start" }}>
                         <Row wrap="wrap" justify="space-between" align="center">
                           <Text b>{item.title}</Text>
-                          <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
+                          <Text
+                            css={{
+                              color: "$accents7",
+                              fontWeight: "$semibold",
+                              fontSize: "$sm",
+                            }}
+                          >
                             {item.price}
                           </Text>
                         </Row>
@@ -145,9 +151,11 @@ const Profile = () => {
             </div>
           </section>
         </>
-        : <NotAuthenticated isLogged={isLogged} setIsLogged={setIsLogged} />}
+      ) : (
+        <NotAuthenticated isLogged={isLogged} setIsLogged={setIsLogged} />
+      )}
     </section>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
