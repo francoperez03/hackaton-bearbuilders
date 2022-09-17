@@ -39,7 +39,7 @@ export default function Web3ButtonTransfer({
       hash: dataApprove?.hash,
     });
   const SELLER_ADDRESS = "0xA81895CE092398F043432bCe85D4579332aC61d8";
-  const RESERVATION_ID = 1;
+  const RESERVATION_ID = 2;
   const PRICE_ERC20 = 1;
   // //Reservation
   const {
