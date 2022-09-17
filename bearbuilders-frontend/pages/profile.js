@@ -7,44 +7,34 @@ const Profile = () => {
 
   const list = [
     {
-      title: "Orange",
-      img: "/images/fruit-1.jpeg",
-      price: "$5.50",
+      title: "Inglaterra",
+      img: "/img/stamps/stamp-1.png",
+      price: "33 días",
     },
     {
-      title: "Tangerine",
-      img: "/images/fruit-2.jpeg",
-      price: "$3.00",
+      title: "Francia",
+      img: "/img/stamps/stamp-2.png",
+      price: "20 días",
     },
     {
-      title: "Raspberry",
-      img: "/images/fruit-3.jpeg",
-      price: "$10.00",
+      title: "Italia",
+      img: "/img/stamps/stamp-3.png",
+      price: "15 días",
     },
     {
-      title: "Lemon",
-      img: "/images/fruit-4.jpeg",
-      price: "$5.30",
+      title: "Egipto",
+      img: "/img/stamps/stamp-4.png",
+      price: "14 días",
     },
     {
-      title: "Advocato",
-      img: "/images/fruit-5.jpeg",
-      price: "$15.70",
+      title: "Japón",
+      img: "/img/stamps/stamp-5.png",
+      price: "12 días",
     },
     {
-      title: "Lemon 2",
-      img: "/images/fruit-6.jpeg",
-      price: "$8.00",
-    },
-    {
-      title: "Banana",
-      img: "/images/fruit-7.jpeg",
-      price: "$7.50",
-    },
-    {
-      title: "Watermelon",
-      img: "/images/fruit-8.jpeg",
-      price: "$12.20",
+      title: "Estados Unidos",
+      img: "/img/stamps/stamp-6.png",
+      price: "5 días",
     },
   ];
 
@@ -56,20 +46,10 @@ const Profile = () => {
             <h2 className="profile__reservations-title">Reservas</h2>
             <div className="profile__reservations-items">
               <Card isPressable isHoverable css={{ w: "75%", h: "350px" }}>
-                {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-              <Col>
-                <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-                  New
-                </Text>
-                <Text h3 color="black">
-                  Acme camera
-                </Text>
-              </Col>
-            </Card.Header> */}
                 <Card.Body css={{ p: 0 }}>
-                  <Link href={`/reservations/1`} key={1}>
+                  <Link href={`/reservations/6`} key={1}>
                     <Card.Image
-                      src="https://nextui.org/images/card-example-6.jpeg"
+                      src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/338565477.jpg?k=c7176feffa9ab0d987432665bba1de69d8d6ee0add84b4fb19603d6ee8b34e8e&o=&hp=1"
                       width="100%"
                       height="100%"
                       objectFit="cover"
@@ -94,7 +74,7 @@ const Profile = () => {
                         ✈️ 53 días para tu viaje!
                       </Text>
                       <Text color="#000" size={12}>
-                        🇫🇷 París, Francia
+                        🇹🇭 Samui, Tailandia
                       </Text>
                     </Col>
                   </Row>
@@ -108,13 +88,11 @@ const Profile = () => {
               <Grid.Container gap={2} justify="flex-start">
                 {list.map((item, index) => (
                   <Grid xs={6} sm={6} key={index}>
-                    <Card isPressable isHoverable>
-                      <Card.Body css={{ p: 0 }}>
+                    <Card  isHoverable>
+                      <Card.Body css={{ p: 0, height: 200 }}>
                         <Card.Image
-                          src={"https://nextui.org" + item.img}
-                          objectFit="cover"
-                          width="100%"
-                          height={140}
+                          src={item.img}
+                          objectFit="fit"
                           alt={item.title}
                         />
                       </Card.Body>

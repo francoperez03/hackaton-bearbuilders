@@ -40,12 +40,6 @@ export default function Marketplace({ reservations }) {
                            </Row>
                         </Card.Footer>
                      </Card>
-
-                     {/* <div>
-                        <h1>{reservation.hotel.name}</h1>
-                        <h1>{reservation.reservation.startDate.substring(0, 10)}</h1>
-                        <h1>{reservation.reservation.endDate.substring(0, 10)}</h1>
-                     </div> */}
                   </a>
                </Link>
             ))}
