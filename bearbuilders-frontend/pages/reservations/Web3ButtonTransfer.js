@@ -19,7 +19,7 @@ export default function Web3ButtonTransfer({
 }) {
   const [buttonText, setButtonText] = useState(idleText);
 
-  const [buttonColor, setButtonColor] = useState('primary')
+  const [buttonColor, setButtonColor] = useState("primary");
 
   //Approve
   const { config: configApprove } = usePrepareContractWrite({
@@ -61,11 +61,10 @@ export default function Web3ButtonTransfer({
     useWaitForTransaction({
       hash: dataReservation?.hash,
     });
-  console.log({ writeReservation });
   useEffect(() => {
     if (isLoadingApprove) {
       console.log("CARGANDO");
-      setButtonColor('warning')
+      setButtonColor("warning");
       setButtonText(pendingText);
     }
   }, [isLoadingApprove]);
@@ -80,7 +79,7 @@ export default function Web3ButtonTransfer({
   useEffect(() => {
     if (isSuccessReservation) {
       console.log("SUPER APROBADO", dataReservation?.hash);
-      setButtonColor('#8a6445')
+      setButtonColor("#8a6445");
       setButtonText(succesText);
     }
   }, [isSuccessReservation]);
@@ -90,7 +89,9 @@ export default function Web3ButtonTransfer({
   };
   return (
     <div>
-      <Button onClick={onClick} color={ buttonColor }>{buttonText}</Button>
+      <Button onClick={onClick} color={buttonColor}>
+        {buttonText}
+      </Button>
       {/* {isSuccess && (
         <div>
           {succesText}
