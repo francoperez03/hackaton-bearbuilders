@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['nextui.org'],
+    domains: ['nextui.org', 't-cf.bstatic.com'],
   },
 }
 
