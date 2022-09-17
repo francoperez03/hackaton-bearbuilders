@@ -49,7 +49,7 @@ const Profile = () => {
                 <Card.Body css={{ p: 0 }}>
                   <Link href={`/reservations/6`} key={1}>
                     <Card.Image
-                      src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/338565477.jpg?k=c7176feffa9ab0d987432665bba1de69d8d6ee0add84b4fb19603d6ee8b34e8e&o=&hp=1"
+                      src="https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/309470591.jpg?k=059f91be22a48adf3ff5e985dd709521e396b4142b1ba6dafc088a5e598ad6ba&o=&hp=1"
                       width="100%"
                       height="100%"
                       objectFit="cover"
@@ -74,7 +74,7 @@ const Profile = () => {
                         ✈️ 53 días para tu viaje!
                       </Text>
                       <Text color="#000" size={12}>
-                        🇹🇭 Samui, Tailandia
+                        🇹🇹 Estambul, Turquía
                       </Text>
                     </Col>
                   </Row>

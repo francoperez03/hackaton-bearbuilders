@@ -20,7 +20,7 @@ export default function ReservationDetail({ reservation }) {
         <div className="reservation-detail__info">
           <h2>{reservation.hotel.name}</h2>
           <h6>{`${reservation.location.city}, ${reservation.location.country}`}</h6>
-          <h2 className="reservation-detail__info-price">$2.500</h2>
+          <h2 className="reservation-detail__info-price">$2.450</h2>
           <p className="reservation-detail__info-description">
             El hotel ofrece amplias suites de lujo con baño de mármol, preciosos jardines y bares y restaurantes gourmet ostentosos. Este es el único hotel de la exclusiva zona residencial de Recoleta con una pileta al aire libre en el jardín. El alojamiento también cuenta con un spa galardonado y gimnasio de última generación. Hay conexión de wifi gratis.
           </p>
@@ -148,6 +148,55 @@ export const getServerSideProps = async (context) => {
       },
     },
     {
+      id: "3",
+      hotel: {
+        name: "Palacio Paz Hotel",
+        address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
+        telephone: "+5493876282042",
+        mail: "palacio@gmail.com",
+        socialNetworks: [
+          {
+            name: "facebook",
+            url: "facebook/hotelfb",
+          },
+        ],
+        amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
+        images: [
+          {
+            url: "https://t-cf.bstatic.com/xdata/images/hotel/max1280x900/302992544.jpg?k=22005c42fa4eac8a0a51cd6c0b4a97091762361fac82696266f2203c9b2e6105&o=&hp=1",
+            alt: "hotelimg",
+          },
+        ],
+        description:
+          "El Palacio Paz Boutique Hotel alberga un bar y ofrece habitaciones en Buenos Aires, a 700 metros de la basílica del Santísimo Sacramento y a 1,5 km del Obelisco de Buenos Aires. Cuenta con restaurante, recepción 24 horas, servicio de habitaciones y WiFi gratuita en todas las instalaciones. El hotel ofrece habitaciones familiares.",
+      },
+      location: {
+        city: "Buenos Aires",
+        state: [],
+        country: "Argentina",
+      },
+      reservation: {
+        status: "pending",
+        startDate: "1 nov 2022",
+        endDate: "8 nov 2022",
+        trace: [
+          {
+            userId: "",
+            reservationDate: "",
+            valid: true,
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+          {
+            userId: "",
+            reservationDate: "",
+          },
+        ],
+      },
+    },
+    {
       id: "4",
       hotel: {
         name: "Hotel Lutetia",
@@ -198,7 +247,7 @@ export const getServerSideProps = async (context) => {
       },
     },
     {
-      id: "3",
+      id: "5",
       hotel: {
         name: "NYX Hotel Holborn",
         address: "Southampton Row,, Camden, Londres, WC1B 4AR, Reino Unido",
@@ -248,7 +297,7 @@ export const getServerSideProps = async (context) => {
     },
 
     {
-      id: "5",
+      id: "6",
       hotel: {
         name: "Melas Hotel Istanbul",
         address:
@@ -298,7 +347,7 @@ export const getServerSideProps = async (context) => {
       },
     },
     {
-      id: "6",
+      id: "7",
       hotel: {
         name: "Tembo Resort",
         address: "23/2 Moo 4 Bophut, 84320 Koh Samui, Tailandia",
@@ -347,7 +396,7 @@ export const getServerSideProps = async (context) => {
       },
     },
     {
-      id: "7",
+      id: "8",
       hotel: {
         name: "Oleo Cancun Resort",
         address: "Blvd. Kukulcan KM 19.5 Zona Hotelera, 77500 Cancún, México",
