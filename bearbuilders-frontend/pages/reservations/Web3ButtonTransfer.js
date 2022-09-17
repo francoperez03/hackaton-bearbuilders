@@ -19,7 +19,7 @@ export default function Web3ButtonTransfer({
 }) {
   const [buttonText, setButtonText] = useState(idleText);
 
-  const [buttonColor, setButtonColor] = useState('primary')
+  const [buttonColor, setButtonColor] = useState("primary");
 
   //Approve
   const { config: configApprove } = usePrepareContractWrite({
@@ -38,7 +38,9 @@ export default function Web3ButtonTransfer({
     useWaitForTransaction({
       hash: dataApprove?.hash,
     });
-
+  const SELLER_ADDRESS = "0xA81895CE092398F043432bCe85D4579332aC61d8";
+  const RESERVATION_ID = 1;
+  const PRICE_ERC20 = 1;
   // //Reservation
   const {
     config: configReservation,
@@ -48,7 +50,7 @@ export default function Web3ButtonTransfer({
     addressOrName: contractAddress,
     contractInterface: JSON.parse(abiERC721.result),
     functionName: functionName,
-    args: ["0xA81895CE092398F043432bCe85D4579332aC61d8", 1, 1000],
+    args: [SELLER_ADDRESS, RESERVATION_ID, PRICE_ERC20],
     overrides: {
       gasLimit: 3000000,
     },
@@ -61,11 +63,10 @@ export default function Web3ButtonTransfer({
     useWaitForTransaction({
       hash: dataReservation?.hash,
     });
-  console.log({ writeReservation });
   useEffect(() => {
     if (isLoadingApprove) {
       console.log("CARGANDO");
-      setButtonColor('warning')
+      setButtonColor("warning");
       setButtonText(pendingText);
     }
   }, [isLoadingApprove]);
@@ -80,7 +81,7 @@ export default function Web3ButtonTransfer({
   useEffect(() => {
     if (isSuccessReservation) {
       console.log("SUPER APROBADO", dataReservation?.hash);
-      setButtonColor('#8a6445')
+      setButtonColor("#8a6445");
       setButtonText(succesText);
     }
   }, [isSuccessReservation]);
@@ -90,7 +91,9 @@ export default function Web3ButtonTransfer({
   };
   return (
     <div>
-      <Button onClick={onClick} color={ buttonColor }>{buttonText}</Button>
+      <Button onClick={onClick} color={buttonColor}>
+        {buttonText}
+      </Button>
       {/* {isSuccess && (
         <div>
           {succesText}
