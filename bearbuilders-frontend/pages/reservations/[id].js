@@ -30,16 +30,6 @@ export default function ReservationDetail({ reservation }) {
           </p>
         </div>
         <div className="reservation-detail__content-buttons">
-          <Web3Button
-            approveContractAddress={
-              "0x0459ee30F112654b25523c289a89445321dF6589"
-            }
-            contractAddress={"0x8B503347795042444f9395a9d31E44F2425d3AeD"}
-            functionName={"makeAReservation"}
-            idleText={"Reservar"}
-            pendingText={"Reservando..."}
-            succesText={"Reservado!"}
-          />
           <Web3ButtonTransfer
             approveContractAddress={
               "0x0459ee30F112654b25523c289a89445321dF6589"

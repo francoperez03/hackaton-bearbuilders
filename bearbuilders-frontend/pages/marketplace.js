@@ -6,10 +6,12 @@ import { Card, Row, Text } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
+
    const reservationsNormal = reservations.slice(0, 3);
-   const reservationsBlue = reservations.slice(3, 10);
+   const reservationsBlue = reservations.slice(3, 6);
    const [actualReservations, setActualReservations] =
       useState(reservationsNormal);
+   
    return (
       <section className="marketplace">
          <Button.Group
@@ -69,7 +71,6 @@ export default function Marketplace({ reservations }) {
             ))}
          </section>
       </section>
-    </section>
   );
 }
 
