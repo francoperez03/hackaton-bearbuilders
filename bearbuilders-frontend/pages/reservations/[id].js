@@ -22,6 +22,7 @@ export default function ReservationDetail({ reservation }) {
         <div className="reservation-detail__info">
           <h2>{reservation.hotel.name}</h2>
           <h6>{`${reservation.location.city}, ${reservation.location.country}`}</h6>
+          <h6>{reservation.reservation.startDate !== '' && `${reservation.reservation.startDate} al ${reservation.reservation.endDate}`}</h6>
           <h2 className="reservation-detail__info-price">$2.450</h2>
           <p className="reservation-detail__info-description">
             El hotel ofrece amplias suites de lujo con baño de mármol, preciosos
@@ -91,8 +92,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "14 oct 2022",
-        endDate: "18 oct 2022",
+        startDate: "",
+        endDate: "",
         trace: [
           {
             userId: "",
@@ -140,8 +141,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "1 nov 2022",
-        endDate: "8 nov 2022",
+        startDate: "",
+        endDate: "",
         trace: [
           {
             userId: "",
@@ -189,8 +190,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "1 nov 2022",
-        endDate: "8 nov 2022",
+        startDate: "",
+        endDate: "",
         trace: [
           {
             userId: "",
@@ -239,8 +240,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "1 nov 2022",
-        endDate: "8 nov 2022",
+        startDate: "01/11/2022",
+        endDate: "08/112022",
         trace: [
           {
             userId: "",
@@ -288,8 +289,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "1 nov 2022",
-        endDate: "8 nov 2022",
+        startDate: "15/11/2022",
+        endDate: "19/11/2022",
         trace: [
           {
             userId: "",
@@ -307,7 +308,6 @@ export const getServerSideProps = async (context) => {
         ],
       },
     },
-
     {
       id: "6",
       hotel: {
@@ -339,8 +339,8 @@ export const getServerSideProps = async (context) => {
       },
       reservation: {
         status: "pending",
-        startDate: "1 nov 2022",
-        endDate: "8 nov 2022",
+        startDate: "26/11/2022",
+        endDate: "30/11/2022",
         trace: [
           {
             userId: "",

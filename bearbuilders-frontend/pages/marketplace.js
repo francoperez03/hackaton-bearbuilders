@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
-import { Card, Row, Text } from "@nextui-org/react";
+import { Card, Row, Col, Text } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
@@ -56,12 +56,13 @@ export default function Marketplace({ reservations }) {
                                  css={{
                                     color: "$accents7",
                                     fontWeight: "$semibold",
-                                    fontSize: "$sm",
+                                    fontSize: "$md",
                                  }}
                               >
                                  {"$2450"}
                               </Text>
                            </Row>
+
                         </Card.Footer>
                      </Card>
                   </a>
@@ -104,8 +105,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "14 oct 2022",
-            endDate: "18 oct 2022",
+            startDate: "",
+            endDate: "",
             trace: [
                {
                   userId: "",
@@ -153,8 +154,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
+            startDate: "",
+            endDate: "",
             trace: [
                {
                   userId: "",
@@ -202,8 +203,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
+            startDate: "",
+            endDate: "",
             trace: [
                {
                   userId: "",
@@ -252,8 +253,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
+            startDate: "01/11/2022",
+            endDate: "08/112022",
             trace: [
                {
                   userId: "",
@@ -301,8 +302,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
+            startDate: "15/11/2022",
+            endDate: "19/11/2022",
             trace: [
                {
                   userId: "",
@@ -320,7 +321,6 @@ export const getServerSideProps = async (context) => {
             ],
          },
       },
-
       {
          id: "6",
          hotel: {
@@ -352,8 +352,8 @@ export const getServerSideProps = async (context) => {
          },
          reservation: {
             status: "pending",
-            startDate: "1 nov 2022",
-            endDate: "8 nov 2022",
+            startDate: "26/11/2022",
+            endDate: "30/11/2022",
             trace: [
                {
                   userId: "",
