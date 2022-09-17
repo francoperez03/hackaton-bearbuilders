@@ -4,7 +4,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Navigation() {
   const { status } = useAccount();
@@ -12,11 +12,7 @@ export default function Navigation() {
   useEffect(() => {
     if (status) {
       if (status === "connected") {
-        setButton(
-          <Button auto flat as={Link} href="/profile">
-            Mi Perfil
-          </Button>
-        );
+        setButton(<Link href="/profile">Mi Perfil</Link>);
       } else {
         setButton(
           <ConnectButton
@@ -34,7 +30,7 @@ export default function Navigation() {
       <Navbar variant="sticky">
         <Navbar.Brand>
           <Link href="/">
-            <a className='navbar-logo'>
+            <a className="navbar-logo">
               <Image src="/img/hotel-bell.png" width={30} height={25} />
               <Text
                 weight="extrabold"
@@ -49,8 +45,12 @@ export default function Navigation() {
           </Link>
         </Navbar.Brand>
         <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
-          <Link href="/"><a >Inicio</a></Link>
-          <Link href="/marketplace"><a >Marketplace</a></Link>
+          <Link href="/">
+            <a>Inicio</a>
+          </Link>
+          <Link href="/marketplace">
+            <a>Marketplace</a>
+          </Link>
         </Navbar.Content>
         <Navbar.Content>
           <Navbar.Item>
