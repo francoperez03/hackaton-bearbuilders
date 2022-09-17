@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { useAccount } from "wagmi";
 import Web3Button from "./Web3Button";
 export default function ReservationDetail({ reservation }) {
@@ -28,10 +27,55 @@ export default function ReservationDetail({ reservation }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const { data: reservation } = await axios.get(
-    "http://0.0.0.0:3002/reservations/" + context.query.id
-  );
-
+  const id = context.query.id;
+  const reservation = {
+    id: "0123456789",
+    hotel: {
+      name: "Punta Cana Hotel",
+      address: "Punta Cana Hotel",
+      telephone: "Punta Cana Hotel",
+      mail: "Punta Cana Hotel",
+      socialNetworks: [
+        {
+          name: "facebook",
+          url: "facebook/puntaCAana",
+        },
+      ],
+      amenities: ["piscina", "desayuno"],
+      images: [
+        {
+          url: "",
+          alt: "",
+        },
+      ],
+      description: "description 1 lorem lorem lorem",
+    },
+    location: {
+      city: "Caribe",
+      state: [],
+      country: "",
+    },
+    reservation: {
+      status: "pending",
+      startDate: "2021-10-31T01:30:00.000-05:00",
+      endDate: "2020-10-31T01:30:00.000-05:00",
+      trace: [
+        {
+          userId: "",
+          reservationDate: "",
+          valid: true,
+        },
+        {
+          userId: "",
+          reservationDate: "",
+        },
+        {
+          userId: "",
+          reservationDate: "",
+        },
+      ],
+    },
+  };
   return {
     props: {
       reservation,
