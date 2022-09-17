@@ -8,12 +8,14 @@ export default function ReservationDetail({ reservation }) {
   return (
     <section className="reservation-detail">
       <section className="reservation-detail__img">
-        <Image
-          src={reservation.hotel.images[0].url}
-          alt="Default Image"
-        />
+        <Image src={reservation.hotel.images[0].url} alt="Default Image" />
         <div className="icons">
-          <Image src='/img/icons.png' alt="Current Image" layout={'fill'} objectFit={'contain'} />
+          <Image
+            src="/img/icons.png"
+            alt="Current Image"
+            layout={"fill"}
+            objectFit={"contain"}
+          />
         </div>
       </section>
       <section className="reservation-detail__content">
@@ -22,11 +24,21 @@ export default function ReservationDetail({ reservation }) {
           <h6>{`${reservation.location.city}, ${reservation.location.country}`}</h6>
           <h2 className="reservation-detail__info-price">$2.450</h2>
           <p className="reservation-detail__info-description">
-            El hotel ofrece amplias suites de lujo con baño de mármol, preciosos jardines y bares y restaurantes gourmet ostentosos. Este es el único hotel de la exclusiva zona residencial de Recoleta con una pileta al aire libre en el jardín. El alojamiento también cuenta con un spa galardonado y gimnasio de última generación. Hay conexión de wifi gratis.
+            El hotel ofrece amplias suites de lujo con baño de mármol, preciosos
+            jardines y bares y restaurantes gourmet ostentosos. Este es el único
+            hotel de la exclusiva zona residencial de Recoleta con una pileta al
+            aire libre en el jardín. El alojamiento también cuenta con un spa
+            galardonado y gimnasio de última generación. Hay conexión de wifi
+            gratis.
           </p>
 
           <p className="reservation-detail__info-description">
-            El restaurante de diseño Elena sirve cocina argentina gourmet y el bar Pony Line, el primer bar argentino inspirado en el deporte del polo, ofrece cócteles personalizados, preparados por bármanes expertos. El restaurante Nuestro Secreto, con un moderno ambiente informal interior y al aire libre, está junto a la pileta y prepara barbacoas al estilo argentino.
+            El restaurante de diseño Elena sirve cocina argentina gourmet y el
+            bar Pony Line, el primer bar argentino inspirado en el deporte del
+            polo, ofrece cócteles personalizados, preparados por bármanes
+            expertos. El restaurante Nuestro Secreto, con un moderno ambiente
+            informal interior y al aire libre, está junto a la pileta y prepara
+            barbacoas al estilo argentino.
           </p>
         </div>
         <div className="reservation-detail__content-buttons">
@@ -150,7 +162,7 @@ export const getServerSideProps = async (context) => {
     {
       id: "3",
       hotel: {
-        name: "Palacio Paz Hotel",
+        name: "Hotel Satoshi",
         address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
         telephone: "+5493876282042",
         mail: "palacio@gmail.com",

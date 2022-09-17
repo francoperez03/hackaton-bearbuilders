@@ -2,42 +2,39 @@ import { Card, Grid, Col, Row, Button, Text } from "@nextui-org/react";
 import { useState } from "react";
 import Link from "next/link";
 
+const list = [
+  {
+    title: "Inglaterra",
+    img: "/img/stamps/stamp-1.png",
+    price: "33 días",
+  },
+  {
+    title: "Francia",
+    img: "/img/stamps/stamp-2.png",
+    price: "20 días",
+  },
+  {
+    title: "Italia",
+    img: "/img/stamps/stamp-3.png",
+    price: "15 días",
+  },
+  {
+    title: "Egipto",
+    img: "/img/stamps/stamp-4.png",
+    price: "14 días",
+  },
+  {
+    title: "Japón",
+    img: "/img/stamps/stamp-5.png",
+    price: "12 días",
+  },
+  {
+    title: "Estados Unidos",
+    img: "/img/stamps/stamp-6.png",
+    price: "5 días",
+  },
+];
 const Profile = () => {
-  const [isLogged, setIsLogged] = useState(false);
-
-  const list = [
-    {
-      title: "Inglaterra",
-      img: "/img/stamps/stamp-1.png",
-      price: "33 días",
-    },
-    {
-      title: "Francia",
-      img: "/img/stamps/stamp-2.png",
-      price: "20 días",
-    },
-    {
-      title: "Italia",
-      img: "/img/stamps/stamp-3.png",
-      price: "15 días",
-    },
-    {
-      title: "Egipto",
-      img: "/img/stamps/stamp-4.png",
-      price: "14 días",
-    },
-    {
-      title: "Japón",
-      img: "/img/stamps/stamp-5.png",
-      price: "12 días",
-    },
-    {
-      title: "Estados Unidos",
-      img: "/img/stamps/stamp-6.png",
-      price: "5 días",
-    },
-  ];
-
   return (
     <section className="profile">
       {

@@ -5,7 +5,6 @@ import { Card, Row, Text } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Marketplace({ reservations }) {
-
    const reservationsNormal = reservations.slice(0, 3);
    const reservationsBlue = reservations.slice(3, 6);
    const [actualReservations, setActualReservations] =
@@ -176,7 +175,7 @@ export const getServerSideProps = async (context) => {
       {
          id: "3",
          hotel: {
-            name: "Palacio Paz Hotel",
+            name: "Hotel Satoshi",
             address: "Avenida Santa Fe 760, 1006 Buenos Aires, Argentina",
             telephone: "+5493876282042",
             mail: "palacio@gmail.com",
