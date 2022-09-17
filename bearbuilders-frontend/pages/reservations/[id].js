@@ -1,13 +1,20 @@
 import React from "react";
 import { useAccount } from "wagmi";
 import Web3Button from "./Web3Button";
+<<<<<<< HEAD
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 //import Image from 'next/image'
 import { Image } from "@nextui-org/react";
+=======
+import Web3ButtonTransfer from "./Web3ButtonTransfer";
+import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+>>>>>>> 4c5f8faee4656040c4e2f23b1f2410d57f9e9744
 
 export default function ReservationDetail({ reservation }) {
   const { address, status } = useAccount();
   return (
+<<<<<<< HEAD
     <section className='reservation-detail'>
       <section className='reservation-detail__img'>
         <div className="icons">
@@ -18,6 +25,17 @@ export default function ReservationDetail({ reservation }) {
             src={reservation.hotel.images[0].url}
             alt="Default Image"
             objectFit="cover"
+=======
+    <section className="reservation-detail">
+      <section className="reservation-detail__img">
+        <Image src="/img/hotel1.jpeg" width={700} height={500} />
+        <div className="icons">
+          <Image
+            src="/img/icons.png"
+            alt="Current Image"
+            layout={"fill"}
+            objectFit={"contain"}
+>>>>>>> 4c5f8faee4656040c4e2f23b1f2410d57f9e9744
           />
         </div>
       </section>
@@ -50,12 +68,6 @@ export default function ReservationDetail({ reservation }) {
           </p>
         </div>
         <div className="reservation-detail__content-buttons">
-          <ConnectButton
-            label="Conectá tu billetera"
-          // accountStatus="address"
-          // chainStatus="none"
-          // showBalance={false}
-          />
           <Web3Button
             approveContractAddress={
               "0x0459ee30F112654b25523c289a89445321dF6589"
@@ -65,6 +77,16 @@ export default function ReservationDetail({ reservation }) {
             idleText={"Reservar"}
             pendingText={"Reservando"}
             succesText={"Reservado!"}
+          />
+          <Web3ButtonTransfer
+            approveContractAddress={
+              "0x0459ee30F112654b25523c289a89445321dF6589"
+            }
+            contractAddress={"0x8B503347795042444f9395a9d31E44F2425d3AeD"}
+            functionName={"changeReservationOwner"}
+            idleText={"Comprar"}
+            pendingText={"Comprando"}
+            succesText={"Publicar"}
           />
         </div>
       </section>

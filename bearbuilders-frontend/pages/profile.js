@@ -1,6 +1,6 @@
 import { Card, Grid, Col, Row, Button, Text } from "@nextui-org/react";
 import { useState } from "react";
-import NotAuthenticated from "../components/NotAuthenticated/NotAuthenticated";
+import Link from "next/link";
 
 const Profile = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -50,12 +50,12 @@ const Profile = () => {
 
   return (
     <section className="profile">
-      {isLogged ? (
+      {
         <>
           <section className="profile__reservations">
             <h2 className="profile__reservations-title">Reservas</h2>
             <div className="profile__reservations-items">
-              <Card isHoverable css={{ w: "75%", h: "350px" }}>
+              <Card isPressable isHoverable css={{ w: "75%", h: "350px" }}>
                 {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
               <Col>
                 <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -67,13 +67,15 @@ const Profile = () => {
               </Col>
             </Card.Header> */}
                 <Card.Body css={{ p: 0 }}>
-                  <Card.Image
-                    src="https://nextui.org/images/card-example-6.jpeg"
-                    width="100%"
-                    height="100%"
-                    objectFit="cover"
-                    alt="Card example background"
-                  />
+                  <Link href={`/reservations/1`} key={1}>
+                    <Card.Image
+                      src="https://nextui.org/images/card-example-6.jpeg"
+                      width="100%"
+                      height="100%"
+                      objectFit="cover"
+                      alt="Card example background"
+                    />
+                  </Link>
                 </Card.Body>
                 <Card.Footer
                   isBlurred
@@ -94,20 +96,6 @@ const Profile = () => {
                       <Text color="#000" size={12}>
                         🇫🇷 París, Francia
                       </Text>
-                    </Col>
-                    <Col>
-                      <Row justify="flex-end">
-                        <Button flat auto rounded color="secondary">
-                          <Text
-                            css={{ color: "inherit" }}
-                            size={12}
-                            weight="bold"
-                            transform="uppercase"
-                          >
-                            Detalles
-                          </Text>
-                        </Button>
-                      </Row>
                     </Col>
                   </Row>
                 </Card.Footer>
@@ -151,9 +139,7 @@ const Profile = () => {
             </div>
           </section>
         </>
-      ) : (
-        <NotAuthenticated isLogged={isLogged} setIsLogged={setIsLogged} />
-      )}
+      }
     </section>
   );
 };
