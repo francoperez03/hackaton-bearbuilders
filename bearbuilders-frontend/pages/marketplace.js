@@ -99,7 +99,7 @@ export const getServerSideProps = async (context) => {
             amenities: ["piscina", "desayuno", "wifi", "parking"],
             images: [
                {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/55261050.jpg?k=e8b2cd7accad1318122aa09bdcb5b9c5763b06d806bde349ef54d3667810d225&o=&hp=1",
+                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/163805332.jpg?k=adc3a9afbeb959b2c2ed28f09e3b1de67d06b89f62ad917138cc2469f9760e5f&o=&hp=1",
                   alt: "hotelimg",
                },
             ],
@@ -148,7 +148,7 @@ export const getServerSideProps = async (context) => {
             amenities: ["piscina", "desayuno", "wifi", "parking", "restaurante"],
             images: [
                {
-                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228711058.jpg?k=89cadc97c727d845d2983f93d48457c41edfdee0fe73842480a89a3bd562e930&o=&hp=1",
+                  url: "https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/228712124.jpg?k=e0e5f3844b38dac09866e716040b0d9aba84c2a6eab063a55acd80b9595b59b5&o=&hp=1",
                   alt: "hotelimg",
                },
             ],
