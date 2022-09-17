@@ -10,6 +10,25 @@
         "inputs": [
           {
             "indexed": true,
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          }
+        ],
+        "name": "BurnReservation",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
             "internalType": "address",
             "name": "previousOwner",
             "type": "address"
@@ -164,6 +183,38 @@
         "inputs": [
           {
             "internalType": "address",
+            "name": "_hotel",
+            "type": "address"
+          }
+        ],
+        "name": "getHotelTransactions",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getPoasToken",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
             "name": "_userId",
             "type": "address"
           }
@@ -174,6 +225,32 @@
             "internalType": "uint256[]",
             "name": "",
             "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getReserveToken",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getTransferToken",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
           }
         ],
         "stateMutability": "view",
@@ -434,11 +511,11 @@
       ]
     },
     "src/Booking.sol": {
-      "keccak256": "0x33cfabd443db76284150b21dff4fb8bc409afe9f6d9c4eeb677285bc35ba0004",
+      "keccak256": "0x5dc915395e565d4c11acb198dec206e8fcf2ea6713ce40f0c41c09a8e81a0f90",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://0bf4a9e3167b631b1b4740c97c7f69ce7bd9add3b284016028b6a777c10333a3",
-        "dweb:/ipfs/QmdRYfqwdoue6k1kmm2r3eKwuwd1GVQY7Utr16FEWqcKDe"
+        "bzz-raw://fff74c5764b5799ca4bd7bac33035e06ce93622e631b4c582f6f2fa181f5e17a",
+        "dweb:/ipfs/QmaXcVdL3Kd1msC5ApygGUKRsis2tRoH5mPwiqLBaXDGtY"
       ]
     },
     "src/POASERC721.sol": {
