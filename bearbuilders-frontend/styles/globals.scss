@@ -24,11 +24,15 @@ a {
 .home {
   display: flex;
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
+  background-image: url('../public/img/translucid-landmarks.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
 
-  a:hover {
-    transform: scale(1.1);
-  }
+a:hover {
+  transform: scale(1.1);
 }
