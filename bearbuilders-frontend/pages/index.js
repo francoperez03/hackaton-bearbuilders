@@ -11,18 +11,17 @@ export default function index({ reservations }) {
       </select>
       <ConnectButton
         label="Conectá tu billetera"
-        accountStatus="address"
-        chainStatus="none"
-        showBalance={false}
+        // accountStatus="address"
+        // chainStatus="none"
+        // showBalance={false}
       />
-
       {reservations.map((reservation) => (
         <Link href={`/reservations/${reservation.id}`} key={reservation.id}>
           <a>
             <div>
-              <h1>{reservation.hotel.name}</h1>
-              <h1>{reservation.reservation.startDate}</h1>
-              <h1>{reservation.reservation.endDate.toString()}</h1>
+              <h4>{reservation.hotel.name}</h4>
+              <h4>{reservation.reservation.startDate}</h4>
+              <h4>{reservation.reservation.endDate.toString()}</h4>
             </div>
           </a>
         </Link>
