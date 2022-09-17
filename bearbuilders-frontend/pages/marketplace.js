@@ -173,27 +173,6 @@ export const getServerSideProps = async (context) => {
             ],
          },
       },
-      reservation: {
-        status: "pending",
-        startDate: "14 oct 2022",
-        endDate: "18 oct 2022",
-        trace: [
-          {
-            userId: "",
-            reservationDate: "",
-            valid: true,
-          },
-          {
-            userId: "",
-            reservationDate: "",
-          },
-          {
-            userId: "",
-            reservationDate: "",
-          },
-        ],
-      },
-    },
     {
       id: "2",
       hotel: {
